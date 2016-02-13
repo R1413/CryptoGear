@@ -1,14 +1,23 @@
 # CryptoGear
 
 Who:
+Raymond Duncan
+Anh-Khoa Than
+Jose Canizares
+Vincent Mahathirash
+Sayed Sarder
 
 Title:
+CryptoGear
 
 Description: 
+An app that teaches the user the about cryptography and serves as an encryption and decryption tool
 
 Vision statement: 
+To create a more security competent society
 
 Motivation: 
+As society is becoming more reliant on technology, 
 
 Risks: 
 (Working environment or language new to some team members,
