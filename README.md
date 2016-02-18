@@ -27,28 +27,28 @@ To deal with the risk of learning the new language, our group needs to find many
 List of requirements: 
 
 
-| User Requirements   | ID | Agile Points | Priority | 
+| User Requirements   | ID | Agile Points | Priority | Time Estimate to complete
 |---|---|---|---|
-|  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High |
+|  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High | ~5 hours
 |---|---|---|---|
-|  2. As a user, I want the app to be well-organized so that it is intuitively easy to navigate.  | 02  | 3 | Medium|
+|  2. As a user, I want the app to be well-organized so that it is intuitively easy to navigate.  | 02  | 3 | Medium| ~4 hours
 |---|---|---|---|
 
 
 
 | Functional Requirements   | ID | Agile Points | Priority | 
 |---|---|---|---|
-|  3. As a user, I want to be able to undergo a training ground, so that I am able to learn the basics of encryption and decryption. | 03  | 5 | High |
+|  3. As a user, I want to be able to undergo a training ground, so that I am able to learn the basics of encryption and decryption. | 03  | 5 | High |  ~5 hours
 |---|---|---|---|
-|  4. As a user, I want to be able to score points as I play this game so that I can keep record of my game history and my level of understanding of cryptography.  | 04 | 20 |	Low |
+|  4. As a user, I want to be able to score points as I play this game so that I can keep record of my game history and my level of understanding of cryptography.  | 04 | 20 |	Low | ~8 hours
 |---|---|---|---|
-|  5. As a user, I want something that provides the text for me to encrypt so that I can begin a challenge. | 05  | 13 | Low |
+|  5. As a user, I want something that provides the text for me to encrypt so that I can begin a challenge. | 05  | 13 | Low | ~3 hours
 |---|---|---|---|
-|  6. As a user, I want to be able to send and receive encrypted text across different users so that the game can be multi-player. | 06 | 8 | Critical |
+|  6. As a user, I want to be able to send and receive encrypted text across different users so that the game can be multi-player. | 06 | 8 | Critical | ~7-8 hours
 |---|---|---|---|
-|  7. As a user, I want to be able to summon a built-in assistant whenever I need it, so that I can be assisted as I attempt my encryption or decryption. | 07 |	52  | Nice-to-have|
+|  7. As a user, I want to be able to summon a built-in assistant whenever I need it, so that I can be assisted as I attempt my encryption or decryption. | 07 |	52  | Nice-to-have| ~6 hours
 |---|---|---|---|
-|  8. As a user, I want a clean, logical, and intuitive interface for working on my encryption or decryption so that I can work on my encryption or decryption smoothly. | 08 | 33 | Low |  
+|  8. As a user, I want a clean, logical, and intuitive interface for working on my encryption or decryption so that I can work on my encryption or decryption smoothly. | 08 | 33 | Low |  ~4 hours
 |---|---|---|---|
 
 
@@ -72,7 +72,7 @@ Time estimate to complete
 [optional] you can add user type (e.g., Admin, end user, potential customer,…)
 
 Methodology: (Waterfall, iterfall, Agile, mash-up of …)
-
+Waterfall
 We will be using the Agile methodology for this team project.
 
 Project Tracking software:
