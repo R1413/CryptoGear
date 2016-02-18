@@ -27,7 +27,7 @@ To deal with the risk of learning the new language, our group needs to find many
 List of requirements: 
 
 
-| User Requirements   | ID | Agile Points | Priority | Time Estimate to complete
+| User Requirements   | ID | Agile Points | Priority | Time Estimate to complete|
 |---|---|---|---|---|
 |  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High | ~5 hours|
 |---|---|---|---|---|
@@ -36,7 +36,7 @@ List of requirements:
 
 
 
-| Functional Requirements   | ID | Agile Points | Priority | 
+| Functional Requirements   | ID | Agile Points | Priority | Time Estimate to complete|
 |---|---|---|---|---|
 |  3. As a user, I want to be able to undergo a training ground, so that I am able to learn the basics of encryption and decryption. | 03  | 5 | High | ~5 hours|
 |---|---|---|---|---|
@@ -53,7 +53,7 @@ List of requirements:
 
 
 
-| Non-functional Requirements   |ID | Agile Points | Priority | 
+| Non-functional Requirements   |ID | Agile Points | Priority | Time Estimate tocomplete|
 |---|---|---|---|---|
 |  9. As a user, I want my account info to be kept track of as I play the game (name, level, profile info, game history) so that other players and I can see who I am. | 09  |  1 |High |~4 hours|
 |---|---|---|---|---|
