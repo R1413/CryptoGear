@@ -23,42 +23,40 @@ Risks: Most of the team members are new to Java, and all are new to working in A
 
 Mitigation strategy for dealing with the risk:
 To deal with the risk of learning the new language, our group needs to find many learning resources for Java. In addition, the group needs to watch tutorials on how to create an Android app using Android Studio.
+
 List of requirements: 
 
 
-|##User Requirements   |##ID | ##Ranking | ##Priority | 
+| User Requirements   | ID | Agile Points | Priority | 
 |---|---|---|---|
-|  1. As a user, I want to have a very well-responding app so that I can enjoy the game. | 1  |   |		|
+|  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High |
 |---|---|---|---|
-|  2. As a user, I want the app to be well-organized so that it is intuitively easy to navigate.  | 2  |	  |		|
-|---|---|---|---|
-
-
-
-|##Functional Requirements   |##ID | ##Ranking | ##Priority | 
-|---|---|---|---|
-|  1. As a user, I want to be able to undergo a training ground, so that I am able to learn the basics of encryption and decryption. | 1  |   |		|
-|---|---|---|---|
-|  2. As a user, I want to be able to score points as I play this game so that I can keep record of my game history and my level of understanding of cryptography.  | 2  |	  |		|
-|---|---|---|---|
-|  4. As a user, I want something that provides the text for me to encrypt so that I can begin a challenge. | 2  |	  |		|
-|---|---|---|---|
-|  5. As a user, I want to be able to send and receive encrypted text across different users so that the game can be multi-player. | 2  |	  |		|
-|---|---|---|---|
-|  6. As a user, I want to be able to summon a built-in assistant whenever I need it, so that I can be assisted as I attempt my encryption or decryption. | 2  |	  |		|
-|---|---|---|---|
-|  7. As a user, I want an interface to type my encryption or to work on decryption to be clean, logical, and intuitive so that I can work on my encryption or decryption smoothly. | 2  
+|  2. As a user, I want the app to be well-organized so that it is intuitively easy to navigate.  | 02  | 3 | Medium|
 |---|---|---|---|
 
 
 
-|##Non-functional Requirements   |##ID | ##Ranking | ##Priority | 
+| Functional Requirements   | ID | Agile Points | Priority | 
 |---|---|---|---|
-|  1. As a user, I want my account info to be kept track of as I play the game (name, level, profile info, game history) so that other players and I can see who I am. | 1  |   |		|
+|  3. As a user, I want to be able to undergo a training ground, so that I am able to learn the basics of encryption and decryption. | 03  | 5 | High |
 |---|---|---|---|
-|  2. As a user, I want to have code that is easy to read so that I can quickly find possible errors/bugs that may exist in the code. | 2  |	  |		|
+|  4. As a user, I want to be able to score points as I play this game so that I can keep record of my game history and my level of understanding of cryptography.  | 04 | 20 |	Low |
+|---|---|---|---|
+|  5. As a user, I want something that provides the text for me to encrypt so that I can begin a challenge. | 05  | 13 | Low |
+|---|---|---|---|
+|  6. As a user, I want to be able to send and receive encrypted text across different users so that the game can be multi-player. | 06 | 8 | Critical |
+|---|---|---|---|
+|  7. As a user, I want to be able to summon a built-in assistant whenever I need it, so that I can be assisted as I attempt my encryption or decryption. | 07 |	52  | Nice-to-have|
+|---|---|---|---|
+|  8. As a user, I want a clean, logical, and intuitive interface for working on my encryption or decryption so that I can work on my encryption or decryption smoothly. | 08 | 33 | Low |  
 |---|---|---|---|
 
+
+
+| Non-functional Requirements   |ID | Agile Points | Priority | 
+|---|---|---|---|
+|  9. As a user, I want my account info to be kept track of as I play the game (name, level, profile info, game history) so that other players and I can see who I am. | 09  |  1 |	High |
+|---|---|---|---|
 
 
 
@@ -75,10 +73,16 @@ Time estimate to complete
 
 Methodology: (Waterfall, iterfall, Agile, mash-up of …)
 
+We will be using the Agile methodology for this team project.
+
 Project Tracking software:
 
 GitHub Issues & Milestones
 
 Link to project tracking software: 
 
+https://trello.com/cryptogear/members
+
 Project plan: (Copy-paste the plan (or screenshot of) from your project tracking software into the repository)
+
+
