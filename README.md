@@ -11,28 +11,57 @@ Title:
 CryptoGear
 
 Description: 
-An app that teaches the user the about cryptography and serves as an encryption and decryption tool
+An app that helps users to build up their knowledge about cryptography by way of an encryption/decryption game. A user of this app should be able to play a part in encrypting and decrypting messages so that he/she can enjoy the game, and learn at the same time about cryptography.
 
 Vision statement: 
 To create a more security competent society.
 
 Motivation: 
-As society is becoming more reliant on technology, security becomes an importanttopic, and providing the knowledge of how to maintain a safe security status is our motivation for this project. 
+As society is becoming more reliant on technology, security becomes an important topic. Providing the knowledge of how to maintain a safe security status is our motivation for this project. 
 
 Risks: Most of the team members are new to Java, and all are new to working in Android Studio.
 
 Mitigation strategy for dealing with the risk:
-To deal with the risk of learning the new language, everyone needs to find different resourses to learn Java, and for Android Studio, everyone needs to watch tutorial videos on how to create an Android app in Studio.
+To deal with the risk of learning the new language, our group needs to find many learning resources for Java. In addition, the group needs to watch tutorials on how to create an Android app using Android Studio.
 List of requirements: 
-User Requirements
-1.As a user, I want to have a very  well- responding app so that I can quickly have access to the tool when I need.
-2.As a user, I want the calculation of encryption/decryption aspects to be quick. 
-Functional Requirements
-1.As a developer, I want the app to take in user inputs and depending on the inputs, calculates the correct outputs, whether it is to encrypt texts or decrypt texts, so that the app fulfills its purpose in life. 
-2.As a developer, I want the app to be responsive to all possible cases of user inputs and handles them accodingly with reasonable output so that the app is logically sound.
-Non-Functional Requirements
-2.As a developer, I want to have code that is easy to read so that I can quicklyfind possible errors/bugs that may exist in the code.
-1.As a developer, I want the Android app to be organized well enough so that I canfind the purpose behind each part of the program. 
+
+
+|##User Requirements   |##ID | ##Ranking | ##Priority | 
+|---|---|---|---|
+|  1. As a user, I want to have a very well-responding app so that I can enjoy the game. | 1  |   |		|
+|---|---|---|---|
+|  2. As a user, I want the app to be well-organized so that it is intuitively easy to navigate.  | 2  |	  |		|
+|---|---|---|---|
+
+
+
+|##Functional Requirements   |##ID | ##Ranking | ##Priority | 
+|---|---|---|---|
+|  1. As a user, I want to be able to undergo a training ground, so that I am able to learn the basics of encryption and decryption. | 1  |   |		|
+|---|---|---|---|
+|  2. As a user, I want to be able to score points as I play this game so that I can keep record of my game history and my level of understanding of cryptography.  | 2  |	  |		|
+|---|---|---|---|
+|  4. As a user, I want something that provides the text for me to encrypt so that I can begin a challenge. | 2  |	  |		|
+|---|---|---|---|
+|  5. As a user, I want to be able to send and receive encrypted text across different users so that the game can be multi-player. | 2  |	  |		|
+|---|---|---|---|
+|  6. As a user, I want to be able to summon a built-in assistant whenever I need it, so that I can be assisted as I attempt my encryption or decryption. | 2  |	  |		|
+|---|---|---|---|
+|  7. As a user, I want an interface to type my encryption or to work on decryption to be clean, logical, and intuitive so that I can work on my encryption or decryption smoothly. | 2  
+|---|---|---|---|
+
+
+
+|##Non-functional Requirements   |##ID | ##Ranking | ##Priority | 
+|---|---|---|---|
+|  1. As a user, I want my account info to be kept track of as I play the game (name, level, profile info, game history) so that other players and I can see who I am. | 1  |   |		|
+|---|---|---|---|
+|  2. As a user, I want to have code that is easy to read so that I can quickly find possible errors/bugs that may exist in the code. | 2  |	  |		|
+|---|---|---|---|
+
+
+
+
 
 Each requirement must have a unique ID number
 (Written in the Agile format: “As a [role], I want to [do X] so that I can [benefit with Y]”)
