@@ -33,7 +33,7 @@ List of requirements:
 |---|---|---|---|---|
 |  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High | ~5 hours
 |---|---|---|---|---|
-|  2. As a user, I want the app to be well-organized so that it is intuitively and easy to navigate.  | 02  | 3 | Medium| ~4 hours
+|  2. As a user, I want the app to be well-organized so that it is intuitive and easy to navigate.  | 02  | 3 | Medium| ~4 hours
 |---|---|---|---|---|
 
 
@@ -52,7 +52,6 @@ List of requirements:
 |---|---|---|---|
 |  8. As a user, I want a clean, logical, and intuitive interface for working on my encryption or decryption so that I can work on my encryption or decryption smoothly. | 08 | 33 | Low |  ~4 hours
 |---|---|---|---|
-
 
 
 | Non-functional Requirements   |ID | Agile Points | Priority | 
