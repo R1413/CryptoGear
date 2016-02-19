@@ -80,8 +80,7 @@ GitHub Issues & Milestones
 
 Link to project tracking software: 
 
-https://trello.com/cryptogear/members
 https://trello.com/b/pyIsuMqk/cryptogear
-Project plan: (Copy-paste the plan (or screenshot of) from your project tracking software into the repository)
+Project plan: (Copy-paste the plan (or screenshot of) from your project tracking software into the repository) -see picture on Github projectPlan.PNG
 
 
