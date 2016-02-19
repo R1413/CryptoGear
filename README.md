@@ -56,7 +56,7 @@ List of requirements:
 
 | Non-functional Requirements   |ID | Agile Points | Priority | Time Estimate tocomplete|
 |---|---|---|---|---|
-|  9. As a user, I want a personal account so that I can keep track of my achievements and accolades as I play the game (name, level, profile info, game history) and so that other players and I can see who I am. | 09  |  1 |	High |
+|  9. As a user, I want a personal account so that I can keep track of my achievements and accolades as I play the game (name, level, profile info, game history) and so that other players and I can see who I am. | 09  |  1 |High |~4 hours|
 |---|---|---|---|---|
 
 
