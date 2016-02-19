@@ -38,26 +38,26 @@ List of requirements:
 
 
 
-| Functional Requirements   | ID | Agile Points | Priority | 
-|---|---|---|---|
+| Functional Requirements  | ID | Agile Points | Priority | Time Estimate to complete|
+|---|---|---|---|---|
 |  3. As a user, I want a training ground, so that I can to learn the basics of encryption and decryption. | 03  | 5 | High |  ~5 hours
-|---|---|---|---|
+|---|---|---|---|---|
 |  4. As a user, I want a point system so that I can keep record of my game history and my level of understanding of cryptography.  | 04 | 20 |	Low | ~8 hours
-|---|---|---|---|
+|---|---|---|---|---|
 |  5. As a user, I want pre-written plaintext for me to encrypt so that I can participate in challenges. | 05  | 13 | Low | ~3 hours
-|---|---|---|---|
+|---|---|---|---|---|
 |  6. As a user, I want a multi-participant messenger so that I can exchange encrypted text with different users test my crytographic knowledge against others in a multi-player environment. | 06 | 8 | Critical | ~7-8 hours
-|---|---|---|---|
+|---|---|---|---|---|
 |  7. As a user, I want a built-in encryption assistant that I can call when I need it, so that if I need help with my encryption or decryption, I its just a button click away | 07 |	52  | Nice-to-have| ~6 hours
-|---|---|---|---|
+|---|---|---|---|---|
 |  8. As a user, I want a clean, logical, and intuitive interface for working on my encryption or decryption so that I can work on my encryption or decryption smoothly. | 08 | 33 | Low |  ~4 hours
-|---|---|---|---|
+|---|---|---|---|---|
 
 
-| Non-functional Requirements   |ID | Agile Points | Priority | 
-|---|---|---|---|
+| Non-functional Requirements   |ID | Agile Points | Priority | Time Estimate tocomplete|
+|---|---|---|---|---|
 |  9. As a user, I want a personal account so that I can keep track of my achievements and accolades as I play the game (name, level, profile info, game history) and so that other players and I can see who I am. | 09  |  1 |	High |
-|---|---|---|---|
+|---|---|---|---|---|
 
 
 Methodology: (Waterfall, iterfall, Agile, mash-up of …)
