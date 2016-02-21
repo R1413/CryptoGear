@@ -31,7 +31,7 @@ List of requirements:
 
 
 | User Requirements   | ID | Agile Points | Priority | Time Estimate to complete |
-| | | | | |
+|---|---|---|---|---|
 |  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High | ~5 hours
 | | | | | |
 |  2. As a user, I want the app to be well-organized so that it is intuitive and easy to navigate.  | 02  | 3 | Medium| ~4 hours
@@ -40,7 +40,7 @@ List of requirements:
 
 
 | Functional Requirements  | ID | Agile Points | Priority | Time Estimate to complete|
-| | | | | |
+|---|---|---|---|---|
 |  3. As a user, I want a training ground, so that I can learn the basics of encryption and decryption. | 03  | 5 | High |  ~5 hours
 | | | | | |
 |  4. As a user, I want a point system so that I can keep record of my game history and my level of understanding of cryptography.  | 04 | 20 |	Low | ~8 hours
