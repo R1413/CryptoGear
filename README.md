@@ -70,7 +70,7 @@ We will be using the Agile methodology for this team project.
 GitHub Issues & Milestones
 Trello
 
-###Link to our project tracking software: 
+###Link to Our Project Tracking Software: 
 
 https://trello.com/b/pyIsuMqk/cryptogear
 
