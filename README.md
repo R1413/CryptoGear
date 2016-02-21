@@ -1,4 +1,4 @@
-# CryptoGear
+# Crypto
 
 Who:
 Raymond Duncan
