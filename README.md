@@ -1,33 +1,33 @@
 # Crypto
 
-Who:
+###Who:
 
-Raymond Duncan
-Anh-Khoa Than
-Jose Canizares
-Sayed Sarder
+Raymond Duncan <br>
+Anh-Khoa Than <br>
+Jose Canizares <br>
+Sayed Sarder <br>
 
-Title:
+###Title: <br>
 CryptoGear
 
-Description: 
+###Description: 
 An app that helps users build up their knowledge about cryptography by way of an encryption/decryption game. A user of this app should be able to play a part in encrypting and decrypting messages so that he/she can enjoy the game, and learn about cryptography at the same time.
 
-Vision statement: 
+###Vision statement: 
 To create a more security competent society.
 
-Motivation: 
+###Motivation: 
 As society is becoming more reliant on technology, security becomes an important topic. Providing the knowledge of how to maintain a safe security status is our motivation for this project. 
 
-Risks:
+###Risks:
 1) Most of the team members are new to Java.
 2) All members are new to working in Android Studio.
 3) Not everyone is fully informed about different cryptographic methods.
 
-Mitigation strategy for dealing with the risk:
+###Our mitigation strategy for dealing with our risks:
 To deal with the risk of learning the new language, our group needs to find many learning resources for Java. In addition, the group needs to watch tutorials on how to create an Android app using Android Studio. To deal with the lack of knowledge regarding cryptography, we will share information from multiple resources explaining different methods.
 
-List of requirements: 
+###List of Requirements: 
 
 
 | User Requirements   | ID | Agile Points | Priority | Time Estimate to complete |
@@ -56,22 +56,22 @@ List of requirements:
 
 
 | Non-functional Requirements   |ID | Agile Points | Priority | Time Estimate tocomplete|
-| | | | | |
+|---|---|---|---|---|
 |  9. As a user, I want a personal account so that I can keep track of my achievements and accolades as I play the game (name, level, profile info, game history) so that players, including myself, can identify me. | 09  |  1 |High |~4 hours|
 | | | | | |
 
 
-Methodology: (Waterfall, iterfall, Agile, mash-up of …)
+###Methodology: (Waterfall, iterfall, Agile, mash-up of …) <br>
 We will be using the Agile methodology for this team project.
 
-Project Tracking Software:
+###Project Tracking Software:
 
 GitHub Issues & Milestones
 Trello
 
-Link to our project tracking software: 
+###Link to our project tracking software: 
 
 https://trello.com/b/pyIsuMqk/cryptogear
 
-Project Plan: 
+###Project Plan: 
 see projectPlan.PNG in repository.
