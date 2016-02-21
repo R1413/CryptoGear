@@ -1,6 +1,7 @@
 # Crypto
 
 Who:
+
 Raymond Duncan
 Anh-Khoa Than
 Jose Canizares
@@ -30,47 +31,47 @@ List of requirements:
 
 
 | User Requirements   | ID | Agile Points | Priority | Time Estimate to complete |
-|---|---|---|---|---|
+| | | | | |
 |  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High | ~5 hours
-|---|---|---|---|---|
+| | | | | |
 |  2. As a user, I want the app to be well-organized so that it is intuitive and easy to navigate.  | 02  | 3 | Medium| ~4 hours
-|---|---|---|---|---|
+| | | | | |
 
 
 
 | Functional Requirements  | ID | Agile Points | Priority | Time Estimate to complete|
-|---|---|---|---|---|
+| | | | | |
 |  3. As a user, I want a training ground, so that I can learn the basics of encryption and decryption. | 03  | 5 | High |  ~5 hours
-|---|---|---|---|---|
+| | | | | |
 |  4. As a user, I want a point system so that I can keep record of my game history and my level of understanding of cryptography.  | 04 | 20 |	Low | ~8 hours
-|---|---|---|---|---|
+| | | | | |
 |  5. As a user, I want pre-written plaintext for me to encrypt so that I can participate in challenges. | 05  | 13 | Low | ~3 hours
-|---|---|---|---|---|
+| | | | | |
 |  6. As a user, I want a multi-participant messenger so that I can exchange encrypted text with different users to test my crytographic knowledge against others in a multi-player environment. | 06 | 8 | Critical | ~7-8 hours
-|---|---|---|---|---|
+| | | | | |
 |  7. As a user, I want a built-in encryption assistant that I call when I need it, so that if I need help with my encryption or decryption, it's just a button-click away. | 07 |	52  | Nice-to-have| ~6 hours
-|---|---|---|---|---|
+| | | | | |
 |  8. As a user, I want a clean, logical, and intuitive interface for working on my encryption or decryption so that I can work on my encryption or decryption smoothly. | 08 | 33 | Low |  ~4 hours
-|---|---|---|---|---|
+| | | | | |
 
 
 | Non-functional Requirements   |ID | Agile Points | Priority | Time Estimate tocomplete|
-|---|---|---|---|---|
+| | | | | |
 |  9. As a user, I want a personal account so that I can keep track of my achievements and accolades as I play the game (name, level, profile info, game history) so that players, including myself, can identify me. | 09  |  1 |High |~4 hours|
-|---|---|---|---|---|
+| | | | | |
 
 
 Methodology: (Waterfall, iterfall, Agile, mash-up of …)
 We will be using the Agile methodology for this team project.
 
-Project Tracking software:
+Project Tracking Software:
 
 GitHub Issues & Milestones
 Trello
 
-Link to project tracking software: 
+Link to our project tracking software: 
 
 https://trello.com/b/pyIsuMqk/cryptogear
 
-Project plan: 
-see projectPlan.PNG in repository
+Project Plan: 
+see projectPlan.PNG in repository.
