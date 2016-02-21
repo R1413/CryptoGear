@@ -8,7 +8,8 @@ Jose Canizares <br>
 Sayed Sarder <br>
 
 ###Title: <br>
-CryptoGear
+Crypto
+
 
 ###Description: 
 An app that helps users build up their knowledge about cryptography by way of an encryption/decryption game. A user of this app should be able to play a part in encrypting and decrypting messages so that he/she can enjoy the game, and learn about cryptography at the same time.
@@ -20,17 +21,17 @@ To create a more security competent society.
 As society is becoming more reliant on technology, security becomes an important topic. Providing the knowledge of how to maintain a safe security status is our motivation for this project. 
 
 ###Risks:
-1) Most of the team members are new to Java.
-2) All members are new to working in Android Studio.
-3) Not everyone is fully informed about different cryptographic methods.
+1) Most of the team members are new to Java. <br>
+2) All members are new to working in Android Studio. <br>
+3) Not everyone is fully informed about different cryptographic methods. <br>
 
 ###Our mitigation strategy for dealing with our risks:
-To deal with the risk of learning the new language, our group needs to find many learning resources for Java. In addition, the group needs to watch tutorials on how to create an Android app using Android Studio. To deal with the lack of knowledge regarding cryptography, we will share information from multiple resources explaining different methods.
+To deal with the risk of learning the new language, our group needs to find many learning resources for Java. In addition, the group needs to watch tutorials on how to create an Android app using Android Studio. To deal with the lack of knowledge regarding cryptography, we will share information from multiple resources, explaining different methods.
 
 ###List of Requirements: 
 
 
-| User Requirements   | ID | Agile Points | Priority | Time Estimate to complete |
+| User Requirements   | ID | Agile Points | Priority | Time Estimate to Complete |
 |---|---|---|---|---|
 |  As a user, I want to have a very well-responding user interface so that I can enjoy the game. | 01 |  2 | High | ~5 hours
 | | | | | |
@@ -39,7 +40,7 @@ To deal with the risk of learning the new language, our group needs to find many
 
 
 
-| Functional Requirements  | ID | Agile Points | Priority | Time Estimate to complete|
+| Functional Requirements  | ID | Agile Points | Priority | Time Estimate to Complete|
 |---|---|---|---|---|
 |  3. As a user, I want a training ground, so that I can learn the basics of encryption and decryption. | 03  | 5 | High |  ~5 hours
 | | | | | |
@@ -55,7 +56,7 @@ To deal with the risk of learning the new language, our group needs to find many
 | | | | | |
 
 
-| Non-functional Requirements   |ID | Agile Points | Priority | Time Estimate tocomplete|
+| Non-Functional Requirements   |ID | Agile Points | Priority | Time Estimate to Complete|
 |---|---|---|---|---|
 |  9. As a user, I want a personal account so that I can keep track of my achievements and accolades as I play the game (name, level, profile info, game history) so that players, including myself, can identify me. | 09  |  1 |High |~4 hours|
 | | | | | |
