@@ -3,7 +3,7 @@
 ####Who:
 
 Raymond Duncan-THE BOSS <br>
-Anh-Khoa Than-THE MASTER<br>
+Anh-Khoa Than-THE KUNG FU PANDA	<br>
 Jose Canizares-THE ARCHITECT <br>
 Sayed Sarder-THE PLAYER  <br>
 
