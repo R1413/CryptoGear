@@ -2,10 +2,10 @@
 
 ####Who:
 
-Raymond Duncan <br>
-Anh-Khoa Than <br>
-Jose Canizares <br>
-Sayed Sarder <br>
+Raymond Duncan-THE BOSS <br>
+Anh-Khoa Than-THE MASTER<br>
+Jose Canizares-THE ARCHITECT <br>
+Sayed Sarder-THE PLAYER  <br>
 
 ####Title: <br>
 Crypto
