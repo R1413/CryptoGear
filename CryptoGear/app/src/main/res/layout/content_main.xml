@@ -66,10 +66,11 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Encrypt"
-        android:id="@+id/EncryptButton"
+        android:text="Login"
+        android:id="@+id/Login"
         android:backgroundTint="#6c5660"
         android:textColor="#ffffff"
+        android:onClick="userLogin"
         android:layout_above="@+id/clearSettings"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -94,7 +95,7 @@
         android:backgroundTint="#6c5660"
         android:textColor="#ffffff"
         android:onClick="saveSettings"
-        android:layout_above="@+id/EncryptButton"
+        android:layout_above="@+id/Login"
         android:layout_centerHorizontal="true" />
 
     <Button
