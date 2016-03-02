@@ -23,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
     EditText UserName;
     EditText Password;
     SeekBar adjustFontSize;
+    EditText Email;
 
-
+    Button Login;
+    Button SignUp;
 
 
     String loginName;
@@ -69,12 +71,31 @@ public class MainActivity extends AppCompatActivity {
 
         //Reference the text field and text view
         Output = (TextView) findViewById(R.id.Output);
+
+
+
+        Email = (EditText) findViewById(R.id.EnterEmail);
+
         UserName = (EditText) findViewById(R.id.EnterUserName);
 
         Password = (EditText) findViewById(R.id.EnterPassword);
 
+
+
+
+
+
+
         //reference the seekbar
         adjustFontSize = (SeekBar) findViewById(R.id.adjustFontSize);
+
+
+
+        Login = (Button) findViewById(R.id.Login);
+        SignUp = (Button) findViewById(R.id.SignUp);
+
+
+
 
 
 
@@ -156,13 +177,62 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button EncryptButton = (Button) findViewById(R.id.Login);
-        //set OnClick Event on the Encrypt Button
-        EncryptButton.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //set OnClick Event on the Login button
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String message = UserName.getText().toString();
+
+
+                //This is where we will connect to Node.js
+
+                userLogin(view);
+
+
+                String Answer = message;
+
+                Output.setText(Answer);
+
+            }
+        });
+
+
+
+
+
+        //set OnClick Event on the Sign Up button
+        SignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String emailaddress = Email.getText().toString();
+
+                String username = UserName.getText().toString();
+
+                String password = Password.getText().toString();
+
+
 
 
 
@@ -174,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                String Answer = message;
+                String Answer = emailaddress + username + password;
 
                 Output.setText(Answer);
 
