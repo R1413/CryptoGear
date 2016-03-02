@@ -304,13 +304,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-<<<<<<< HEAD
-        Log.d("TAG","This is what you just typed in:" + loginName);
-=======
             //print out what the user just typed
             Log.d("TAG", "This is what you just typed in:" + loginName);
 
->>>>>>> 43b4af386cec87f0a5d781b28a73b77eed3139bc
 
 
 
