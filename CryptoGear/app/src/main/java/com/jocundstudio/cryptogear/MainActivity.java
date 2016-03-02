@@ -3,6 +3,7 @@ package com.jocundstudio.cryptogear;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.SeekBar;
@@ -277,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
 
             backgroundTask.execute(method, loginName, loginPassword);
 
-
+        Log.d("TAG","This is what you just typed in:" + loginName);
 
 
 
