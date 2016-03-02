@@ -1,20 +1,20 @@
 package com.jocundstudio.cryptogear;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.Button;
-import android.view.inputmethod.InputMethodManager;
-import android.app.Activity;
-import android.view.ViewGroup;
-import android.view.MotionEvent;
-import android.view.View.OnTouchListener;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -163,7 +163,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String message = UserName.getText().toString();
-                String Answer = "Ok. Cool.";
+
+
+
+
+
+                //This is where we will connect to Node.js
+
+                userLogin(view);
+
+
+
+                String Answer = message;
 
                 Output.setText(Answer);
 
@@ -180,7 +191,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -228,6 +253,9 @@ public class MainActivity extends AppCompatActivity {
 
     //hideKeyboard function
     public static void hideSoftKeyboard(Activity activity) {
+
+
+
         InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
     }
@@ -263,6 +291,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    //Home-made
     //method called when user presses login
     public void userLogin(View view) {
 
@@ -272,15 +302,15 @@ public class MainActivity extends AppCompatActivity {
 
             String method = "login";
 
-            //new BackgroundTask instance
-            //Async task                                    //pass in context
-            BackgroundTask backgroundTask = new BackgroundTask(this);
 
-            backgroundTask.execute(method, loginName, loginPassword);
 
+<<<<<<< HEAD
         Log.d("TAG","This is what you just typed in:" + loginName);
+=======
+            //print out what the user just typed
+            Log.d("TAG", "This is what you just typed in:" + loginName);
 
-
+>>>>>>> 43b4af386cec87f0a5d781b28a73b77eed3139bc
 
 
 
@@ -289,6 +319,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
 
 
 
