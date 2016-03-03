@@ -1,11 +1,10 @@
 package com.jocundstudio.cryptogear;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -14,23 +13,17 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView Output;
-    EditText UserName;
-    EditText Password;
+
     SeekBar adjustFontSize;
-    EditText Email;
+
 
     Button Login;
     Button SignUp;
 
-
-    String loginName;
-    String loginPassword;
 
     float font_size;
 
@@ -69,16 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Reference the text field and text view
-        Output = (TextView) findViewById(R.id.Output);
 
-
-
-        Email = (EditText) findViewById(R.id.EnterEmail);
-
-        UserName = (EditText) findViewById(R.id.EnterUserName);
-
-        Password = (EditText) findViewById(R.id.EnterPassword);
 
 
 
@@ -106,34 +90,34 @@ public class MainActivity extends AppCompatActivity {
 
 
     //whenever user starts the application, we want to load the preferences
-        SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences(getString(R.string.PREF_FILE), MODE_PRIVATE);
+        //SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences(getString(R.string.PREF_FILE), MODE_PRIVATE);
 
         //specify a default value
-        text_info = sharedPreferences.getString(getString(R.string.TEXT_INFO), "");
+        //text_info = sharedPreferences.getString(getString(R.string.TEXT_INFO), "");
 
         //set the text
-        UserName.setText(text_info);
+        //UserName.setText(text_info);
 
 
 
-        font_size = sharedPreferences.getFloat(getString(R.string.FONT_SIZE), 25);
+        //font_size = sharedPreferences.getFloat(getString(R.string.FONT_SIZE), 25);
 
         //set the text size
-        UserName.setTextSize(TypedValue.COMPLEX_UNIT_PX, font_size);
+        //UserName.setTextSize(TypedValue.COMPLEX_UNIT_PX, font_size);
 
-        if (font_size == 25) {
+        //if (font_size == 25) {
 
             //initiate seekbar from the start
-            adjustFontSize.setProgress(0);
+            //adjustFontSize.setProgress(0);
 
-        }
+        //}
 
-        else {
+        //else {
 
             //initiate seekbar with the saved font_size
-            adjustFontSize.setProgress((int) font_size);
+            //adjustFontSize.setProgress((int) font_size);
 
-        }
+        //}
 
 
 
@@ -155,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar adjustFontSize, int progress, boolean fromUser) {
 
                 //Change text size depending on the progress of the seekbar
-                UserName.setTextSize(TypedValue.COMPLEX_UNIT_PX, progress);
+                //UserName.setTextSize(TypedValue.COMPLEX_UNIT_PX, progress);
 
             }
 
@@ -169,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar adjustFontSize) {
 
-                font_size = UserName.getTextSize();
+                //font_size = UserName.getTextSize();
 
 
             }
@@ -202,17 +186,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String message = UserName.getText().toString();
+                //String message = UserName.getText().toString();
 
 
                 //This is where we will connect to Node.js
 
-                userLogin(view);
+                //userLogin(view);
 
 
-                String Answer = message;
+                //String Answer = message;
 
-                Output.setText(Answer);
+                //Output.setText(Answer);
 
             }
         });
@@ -226,27 +210,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String emailaddress = Email.getText().toString();
-
-                String username = UserName.getText().toString();
-
-                String password = Password.getText().toString();
 
 
-
-
-
-
-
-                //This is where we will connect to Node.js
-
-                userLogin(view);
-
-
-
-                String Answer = emailaddress + username + password;
-
-                Output.setText(Answer);
+                //load the sign-up page
+                startActivity(new Intent(MainActivity.this, SignUp.class));
 
             }
         });
@@ -271,6 +238,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    //Function Definitions
+
+
+
+
 
 
 
@@ -291,9 +263,9 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putFloat(getString(R.string.FONT_SIZE), font_size);
+        //editor.putFloat(getString(R.string.FONT_SIZE), font_size);
 
-        editor.putString(getString(R.string.TEXT_INFO), UserName.getText().toString());
+        //editor.putString(getString(R.string.TEXT_INFO), UserName.getText().toString());
 
         //save all this information in the sharedPreferences
         editor.commit();
@@ -327,7 +299,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+
+        if (activity.getCurrentFocus() != null) {
+            inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+        }
+
     }
 
 
@@ -367,15 +343,15 @@ public class MainActivity extends AppCompatActivity {
     public void userLogin(View view) {
 
             //save the username to the string loginName
-            loginName = UserName.getText().toString();
-            loginPassword = Password.getText().toString();
+            //loginName = UserName.getText().toString();
+            //loginPassword = Password.getText().toString();
 
             String method = "login";
 
 
 
             //print out what the user just typed
-            Log.d("TAG", "This is what you just typed in:" + loginName);
+            //Log.d("TAG", "This is what you just typed in:" + loginName);
 
 
 

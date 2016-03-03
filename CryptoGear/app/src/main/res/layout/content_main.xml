@@ -24,45 +24,6 @@
         android:tint="#6d4242"
         android:background="#ffffff" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="50dp"
-        android:textAlignment="center"
-        android:id="@+id/Output"
-        android:layout_above="@+id/saveSettings"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/EnterUserName"
-        android:hint="username"
-        android:textAlignment="center"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:layout_above="@+id/EnterPassword"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/EnterPassword"
-        android:layout_above="@+id/adjustFontSize"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:gravity="center"
-        android:hint="password" />
-
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -92,9 +53,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/adjustFontSize"
         android:indeterminate="false"
-        android:layout_above="@+id/Output"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/saveSettings" />
 
 
 
@@ -132,17 +93,5 @@
         android:onClick="userLogin"
         android:layout_below="@+id/clearSettings"
         android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/EnterEmail"
-        android:hint="username"
-        android:textAlignment="center"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:layout_above="@+id/EnterUserName"
-        android:layout_centerHorizontal="true"
-        android:text="email" />
 
 </RelativeLayout>

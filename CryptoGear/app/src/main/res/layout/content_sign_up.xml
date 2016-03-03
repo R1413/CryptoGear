@@ -12,4 +12,62 @@
     tools:context="com.jocundstudio.cryptogear.SignUp"
     tools:showIn="@layout/activity_sign_up">
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EnterEmail"
+        android:hint="email"
+        android:textAlignment="center"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/EnterPassword"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:gravity="center"
+        android:hint="password"
+        android:layout_below="@+id/EnterUserName"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EnterUserName"
+        android:hint="username"
+        android:textAlignment="center"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/EnterEmail"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:id="@+id/SignUp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blank"
+        android:id="@+id/Output"
+        android:textSize="40dp"
+        android:layout_above="@+id/SignUp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center" />
 </RelativeLayout>
