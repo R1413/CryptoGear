@@ -6,6 +6,7 @@
     <string name="TEXT_INFO">APP_TEXT_INFO</string>
     <string name="title_activity_signup">signup</string>
     <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_login">Login</string>
 
 </resources>
 

@@ -10,40 +10,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class SignUp extends WelcomeScreen {
+public class Login extends WelcomeScreen {
 
 
-
-    EditText UserName;
     EditText Password;
     EditText Email;
 
 
-    Button SignUp;
+    Button Login;
 
 
     TextView Output;
 
 
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
-
-
+        setContentView(R.layout.activity_login);
 
         //set up keyboard hiding
-        setupUI(findViewById(R.id.signuppage));
-
-
-
-
+        setupUI(findViewById(R.id.loginpage));
 
 
         Email = (EditText) findViewById(R.id.EnterEmail);
-
-        UserName = (EditText) findViewById(R.id.EnterEmail);
 
         Password = (EditText) findViewById(R.id.EnterPassword);
 
@@ -51,10 +42,7 @@ public class SignUp extends WelcomeScreen {
 
 
 
-        SignUp = (Button) findViewById(R.id.SignUp);
-
-
-
+        Login = (Button) findViewById(R.id.Login);
 
 
         Output = (TextView) findViewById(R.id.Output);
@@ -65,34 +53,46 @@ public class SignUp extends WelcomeScreen {
 
 
 
-        SignUp.setOnClickListener(new View.OnClickListener() {
+
+
+
+        //
+        userLocalStore = new UserLocalStore(this);
+
+
+
+
+
+
+
+
+
+
+        Login.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
+
+                User user = new User("RANDOM", "RANDOM", "RANDOM");
+
+                //set user loggedIn to true
+                userLocalStore.storeUserData(user);
+                userLocalStore.setUserLoggedIn(true);
+
                 String emailAddress = Email.getText().toString();
 
-                String username = UserName.getText().toString();
-
                 String password = Password.getText().toString();
-
-                //registered data
-                User registeredData = new User (emailAddress, username, password);
-
-
-
-
-
-
 
 
 
                 //This is where we will connect to Node.js
 
 
+                String Answer = emailAddress + password;
 
 
 
-                String Answer = emailAddress + username + password;
 
                 Output.setText(Answer);
 
@@ -106,21 +106,7 @@ public class SignUp extends WelcomeScreen {
 
 
 
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
 
 
 
@@ -165,8 +151,8 @@ public class SignUp extends WelcomeScreen {
             view.setOnTouchListener(new View.OnTouchListener() {
 
                 public boolean onTouch(View v, MotionEvent event) {
-                    //Log.d("TAG", "You clicked on the sign up activity.");
-                    hideSoftKeyboard(SignUp.this);
+                    //Log.d("TAG", "You clicked on the login activity.");
+                    hideSoftKeyboard(Login.this);
                     return false;
                 }
 
