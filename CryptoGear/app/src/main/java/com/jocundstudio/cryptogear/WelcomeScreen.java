@@ -24,7 +24,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
 
 
-    //UserLocalStore userLocalStore;
+
 
 
 
@@ -37,7 +37,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
 
         //
-        //userLocalStore = new UserLocalStore(this);
+
 
 
 
@@ -167,43 +167,6 @@ public class WelcomeScreen extends AppCompatActivity {
 
 
     //Function Definitions
-/*
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (authenticate() == true) {
-
-
-
-        }
-
-
-    }
-
-
-
-
-
-    private boolean authenticate() {
-
-        return userLocalStore.getUserLoggedIn();
-
-    }
-
-
-
-    private void displayUserDetails() {
-
-
-        User user = userLocalStore.getLoggedInUser();
-
-
-
-
-    }
-
-*/
 
 
 

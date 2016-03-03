@@ -16,11 +16,14 @@ public class UserLocalStore {
     //to instantiate a sharedPreference, pass in Context
     public UserLocalStore(Context context) {
 
+        //
         userLocalDatabase = context.getSharedPreferences(SP_NAME, 0);
 
 
     }
 
+
+    //store user data
     public void storeUserData(User user) {
 
         SharedPreferences.Editor spEditor = userLocalDatabase.edit();
@@ -35,7 +38,7 @@ public class UserLocalStore {
 
     }
 
-
+    //get the logged in user
     public User getLoggedInUser() {
 
         //default value if there is no email, is an empty string
@@ -65,7 +68,7 @@ public class UserLocalStore {
 
     }
 
-
+    //get the status of the user, logged in or logged out
     public boolean getUserLoggedIn() {
 
         if (userLocalDatabase.getBoolean("loggedIn", false) == true) {

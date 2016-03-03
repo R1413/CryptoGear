@@ -7,6 +7,7 @@
     <string name="title_activity_signup">signup</string>
     <string name="title_activity_sign_up">SignUp</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>
 

@@ -1,7 +1,9 @@
 package com.jocundstudio.cryptogear;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,18 +75,9 @@ public class Login extends WelcomeScreen {
             @Override
             public void onClick(View view) {
 
-
-                User user = new User("RANDOM", "RANDOM", "RANDOM");
-
-                //set user loggedIn to true
-                userLocalStore.storeUserData(user);
-                userLocalStore.setUserLoggedIn(true);
-
                 String emailAddress = Email.getText().toString();
 
                 String password = Password.getText().toString();
-
-
 
                 //This is where we will connect to Node.js
 
@@ -95,6 +88,48 @@ public class Login extends WelcomeScreen {
 
 
                 Output.setText(Answer);
+
+
+
+                //Login verification
+                User user = new User(emailAddress, "RANDOM", password);
+
+
+                User registeredUser = userLocalStore.getLoggedInUser();
+
+
+                Log.d("TAG", "FIRST");
+
+
+                //Compare the passwords of the registered user and the user logging in
+                if (user.password.equals(registeredUser.password)) {
+
+
+                    Log.d("TAG", "SECOND");
+                    //set user loggedIn to true
+
+                    userLocalStore.setUserLoggedIn(true);
+
+
+                    //go to the main activity page
+                    startActivity(new Intent(Login.this, MainActivity.class));
+
+
+                }
+
+                else {
+
+                    Output.setText("Something is wrong with your username or password.");
+
+                }
+
+
+
+
+
+
+
+
 
 
 

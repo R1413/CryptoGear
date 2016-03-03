@@ -25,6 +25,8 @@ public class SignUp extends WelcomeScreen {
     TextView Output;
 
 
+    UserLocalStore userLocalStore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,17 @@ public class SignUp extends WelcomeScreen {
 
 
 
+        //used to access sharedPreferences
+        userLocalStore = new UserLocalStore(this);
+
+
+
 
 
 
         Email = (EditText) findViewById(R.id.EnterEmail);
 
-        UserName = (EditText) findViewById(R.id.EnterEmail);
+        UserName = (EditText) findViewById(R.id.EnterUserName);
 
         Password = (EditText) findViewById(R.id.EnterPassword);
 
@@ -79,6 +86,8 @@ public class SignUp extends WelcomeScreen {
                 User registeredData = new User (emailAddress, username, password);
 
 
+                //store data in sharedPreferences
+                userLocalStore.storeUserData(registeredData);
 
 
 
