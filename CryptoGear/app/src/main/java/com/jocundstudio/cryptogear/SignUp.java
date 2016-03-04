@@ -1,6 +1,7 @@
 package com.jocundstudio.cryptogear;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class SignUp extends WelcomeScreen {
@@ -20,6 +22,8 @@ public class SignUp extends WelcomeScreen {
 
 
     Button SignUp;
+
+
 
 
     TextView Output;
@@ -104,6 +108,40 @@ public class SignUp extends WelcomeScreen {
                 String Answer = emailAddress + username + password;
 
                 Output.setText(Answer);
+
+
+
+                //dynamically create button
+                Button Login = new Button(SignUp.this);
+                Login.setText("Login");
+
+                RelativeLayout ll = (RelativeLayout)findViewById(R.id.signuppage);
+
+                //layout
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.BELOW, R.id.password);
+                lp.addRule(RelativeLayout.CENTER_VERTICAL);
+                lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                ll.addView(Login, lp);
+
+
+                Login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+
+                        //go to the main activity page
+                        startActivity(new Intent(SignUp.this, Login.class));
+
+
+                    }
+                });
+
+                //hide the sign up button.
+                SignUp.setVisibility(View.GONE);
+
+
+
 
 
 

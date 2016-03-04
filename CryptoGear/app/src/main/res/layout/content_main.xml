@@ -55,4 +55,12 @@
         android:layout_below="@+id/LogOut"
         android:layout_centerHorizontal="true"
         android:textSize="60dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect"
+        android:id="@+id/Connect"
+        android:layout_below="@+id/Output"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
