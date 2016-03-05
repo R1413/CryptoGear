@@ -101,8 +101,9 @@ public class Login extends WelcomeScreen {
                 Log.d("TAG", "FIRST");
 
 
-                //Compare the passwords of the registered user and the user logging in
-                if (user.password.equals(registeredUser.password)) {
+                //Compare the passwords and emails
+                // of the registered user and the user logging in
+                if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email)) {
 
 
                     Log.d("TAG", "SECOND");

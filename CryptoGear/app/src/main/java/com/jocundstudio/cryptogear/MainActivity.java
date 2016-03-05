@@ -90,7 +90,7 @@ public class MainActivity extends WelcomeScreen {
                 //specify url
                 //example url: http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo
                 //
-                new JSONTask().execute("http://10.0.0.8:8080");
+                new JSONTask().execute("http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo");
 
             }
 
@@ -239,7 +239,11 @@ public class MainActivity extends WelcomeScreen {
         if (authenticate() == true) {
 
             //tell the user that he/she is logged in
-            Output.setText("You are logged in!");
+            Output.setText("You are logged in! This is Crypto, an app all about encryption. " +
+                    " You will start with learning about Huffman codes, a way of encoding the alphabet into 1's and 0's. " +
+                    "Huffman codes use less bits than something like Ascii (where everything is 8-bits) by taking into " +
+                    "consideration how often a letter from the alphabet is used (e is the most common in the English " +
+                    "language). MP3 and jpeg compression schemes take advantage of this Huffman encoding.");
             //display user details
             displayUserDetails();
 
