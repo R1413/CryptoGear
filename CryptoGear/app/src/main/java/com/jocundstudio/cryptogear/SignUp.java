@@ -15,23 +15,29 @@ import android.widget.TextView;
 public class SignUp extends WelcomeScreen {
 
 
-
+    //Declare text field variables
     EditText UserName;
     EditText Password;
     EditText Email;
 
 
+
+    //Declare SignUp Button
     Button SignUp;
 
 
 
-
+    //declare Output TextView
     TextView Output;
 
 
+    //Declare UserLocalStore for dealing with sharedPreferences
     UserLocalStore userLocalStore;
 
 
+
+
+    //onCreate is called when SignUp page (activity) loads
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +55,8 @@ public class SignUp extends WelcomeScreen {
 
 
 
-
-
+        //Reference the text fields (EditTexts) from the content_sign_up.xml
+        //initialize them to our variables
 
         Email = (EditText) findViewById(R.id.EnterEmail);
 
@@ -61,32 +67,35 @@ public class SignUp extends WelcomeScreen {
 
 
 
-
+        //Reference the signUp button
         SignUp = (Button) findViewById(R.id.SignUp);
 
 
 
 
-
+        //Reference the Output TextView
         Output = (TextView) findViewById(R.id.Output);
 
 
 
 
 
-
+        //Set up an onClickListener for the SignUp button
 
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
+                //Get whatever is typed in the text fields
+                //and store them to local variables
                 String emailAddress = Email.getText().toString();
 
                 String username = UserName.getText().toString();
 
                 String password = Password.getText().toString();
 
-                //registered data
+                //registered dat (the new user)
                 User registeredData = new User (emailAddress, username, password);
 
 
@@ -104,7 +113,7 @@ public class SignUp extends WelcomeScreen {
 
 
 
-
+                
                 String Answer = emailAddress + username + password;
 
                 Output.setText(Answer);

@@ -33,6 +33,14 @@ public class UserLocalStore {
         spEditor.putString("username", user.username);
         spEditor.putString("password", user.password);
 
+
+
+
+
+
+
+
+
         //whenever you make changes to sharedPreferences, you commit it in the end
         spEditor.commit();
 
