@@ -14,19 +14,19 @@ import android.widget.TextView;
 
 public class Login extends WelcomeScreen {
 
-
+//declared text field variables
     EditText Password;
     EditText Email;
 
-
+// declare login button
     Button Login;
 
-
+//declare output textview
     TextView Output;
 
-
+//declare userLocalStore for dealing with share preference
     UserLocalStore userLocalStore;
-
+//oncreate is called when login page (activity) loads
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,8 @@ public class Login extends WelcomeScreen {
         //set up keyboard hiding
         setupUI(findViewById(R.id.loginpage));
 
-
+// reference the text field (Edit text) form the content_login.xml
+        //initialize them to our variable
         Email = (EditText) findViewById(R.id.EnterEmail);
 
         Password = (EditText) findViewById(R.id.EnterPassword);
@@ -43,10 +44,10 @@ public class Login extends WelcomeScreen {
 
 
 
-
+// reference the login button
         Login = (Button) findViewById(R.id.Login);
 
-
+// refeence the output textView
         Output = (TextView) findViewById(R.id.Output);
 
 
@@ -68,12 +69,14 @@ public class Login extends WelcomeScreen {
 
 
 
-
+// setup onclick listener to login button
 
         Login.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                //get whatever typed in the textfield
+                //and store them to local variable
 
                 String emailAddress = Email.getText().toString();
 
