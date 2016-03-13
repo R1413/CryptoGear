@@ -270,6 +270,26 @@ public class SignUp extends WelcomeScreen {
     }
 
 
+    //clearing functions to clear text field when
+    //user hits the x's
+
+    public void clearEmail(View v) {
+
+        Email.setText("");
+
+    }
+
+    public void clearUsername(View v) {
+
+        UserName.setText("");
+
+    }
+
+    public void clearPassword(View v) {
+
+        Password.setText("");
+
+    }
 
 
 

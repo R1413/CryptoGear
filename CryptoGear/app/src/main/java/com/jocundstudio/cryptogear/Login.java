@@ -245,5 +245,27 @@ public class Login extends WelcomeScreen {
 
 
 
+    //clearing functions to clear text field when
+    //user hits the x's
+
+    public void clearEmail(View v) {
+
+        Email.setText("");
+
+    }
+    
+
+    public void clearPassword(View v) {
+
+        Password.setText("");
+
+    }
+
+
+
+
+
+
+
 
 }

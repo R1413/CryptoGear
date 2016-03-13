@@ -59,4 +59,36 @@
         android:layout_below="@+id/Output"
         android:layout_centerHorizontal="true" />
 
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageButton5"
+        android:src="@drawable/crypto_x_button"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="false"
+        android:backgroundTint="#ffffff"
+        android:background="@android:color/transparent"
+        android:tint="#e0d1d1"
+        android:onClick="clearEmail"
+        android:layout_alignTop="@+id/EnterEmail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/EnterPassword" />
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageButton6"
+        android:src="@drawable/crypto_x_button"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="false"
+        android:backgroundTint="#ffffff"
+        android:background="@android:color/transparent"
+        android:tint="#e0d1d1"
+        android:onClick="clearPassword"
+        android:layout_below="@+id/EnterEmail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/Output" />
+
 </RelativeLayout>
