@@ -12,26 +12,35 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class SignUp extends WelcomeScreen {
 
 
-
+    //Declare text field variables
     EditText UserName;
     EditText Password;
     EditText Email;
 
 
+
+    //Declare SignUp Button
     Button SignUp;
 
 
 
-
+    //declare Output TextView
     TextView Output;
 
 
+    //Declare UserLocalStore for dealing with sharedPreferences
     UserLocalStore userLocalStore;
 
 
+
+
+    //onCreate is called when SignUp page (activity) loads
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +58,8 @@ public class SignUp extends WelcomeScreen {
 
 
 
-
-
+        //Reference the text fields (EditTexts) from the content_sign_up.xml
+        //initialize them to our variables
 
         Email = (EditText) findViewById(R.id.EnterEmail);
 
@@ -61,87 +70,115 @@ public class SignUp extends WelcomeScreen {
 
 
 
-
+        //Reference the signUp button
         SignUp = (Button) findViewById(R.id.SignUp);
 
 
 
 
-
+        //Reference the Output TextView
         Output = (TextView) findViewById(R.id.Output);
 
 
 
 
 
-
+        //Set up an onClickListener for the SignUp button
 
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
+                //Get whatever is typed in the text fields
+                // and store them to local variables
                 String emailAddress = Email.getText().toString();
 
                 String username = UserName.getText().toString();
 
                 String password = Password.getText().toString();
 
-                //registered data
-                User registeredData = new User (emailAddress, username, password);
-
-
-                //store data in sharedPreferences
-                userLocalStore.storeUserData(registeredData);
 
 
 
 
+                //user regex for validating email
+                String myPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+                //regex pattern
+                Pattern p = Pattern.compile(myPattern);
+
+                //Check if emailAddress matches a valid email
+                Matcher m = p.matcher(emailAddress);
 
 
 
-                //This is where we will connect to Node.js
 
 
 
 
-
-                String Answer = emailAddress + username + password;
-
-                Output.setText(Answer);
+                //if the user is signing up with a valid email address
+                if(m.matches()) {
 
 
-
-                //dynamically create button
-                Button Login = new Button(SignUp.this);
-                Login.setText("Login");
-
-                RelativeLayout ll = (RelativeLayout)findViewById(R.id.signuppage);
-
-                //layout
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                lp.addRule(RelativeLayout.BELOW, R.id.password);
-                lp.addRule(RelativeLayout.CENTER_VERTICAL);
-                lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
-                ll.addView(Login, lp);
+                    //registered data (the new user)
+                    User registeredData = new User(emailAddress, username, password);
 
 
-                Login.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                    //store data in sharedPreferences
+                    userLocalStore.storeUserData(registeredData);
 
 
-                        //go to the main activity page
-                        startActivity(new Intent(SignUp.this, Login.class));
+                    //This is where we will connect to Node.js
 
 
-                    }
-                });
+                    //String Answer = emailAddress + username + password;
 
-                //hide the sign up button.
-                SignUp.setVisibility(View.GONE);
+                    //Output.setText(Answer);
 
 
+                    //dynamically create button
+                    Button Login = new Button(SignUp.this);
+                    Login.setText("Login");
 
+                    RelativeLayout ll = (RelativeLayout) findViewById(R.id.signuppage);
+
+                    //layout
+                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    lp.addRule(RelativeLayout.BELOW, R.id.password);
+                    lp.addRule(RelativeLayout.CENTER_VERTICAL);
+                    lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    ll.addView(Login, lp);
+
+
+                    Login.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+
+                            //go to the main activity page
+                            startActivity(new Intent(SignUp.this, Login.class));
+
+
+                        }
+                    });
+
+                    //hide the sign up button.
+                    SignUp.setVisibility(View.GONE);
+
+
+                }
+
+
+
+                else {
+
+
+                    Output.setText("Invalid email address.");
+
+
+                }
 
 
 
@@ -233,6 +270,26 @@ public class SignUp extends WelcomeScreen {
     }
 
 
+    //clearing functions to clear text field when
+    //user hits the x's
+
+    public void clearEmail(View v) {
+
+        Email.setText("");
+
+    }
+
+    public void clearUsername(View v) {
+
+        UserName.setText("");
+
+    }
+
+    public void clearPassword(View v) {
+
+        Password.setText("");
+
+    }
 
 
 

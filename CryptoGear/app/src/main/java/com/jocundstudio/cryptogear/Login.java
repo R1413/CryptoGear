@@ -3,7 +3,6 @@ package com.jocundstudio.cryptogear;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +11,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class Login extends WelcomeScreen {
 
-
+//declared text field variables
     EditText Password;
     EditText Email;
 
-
+// declare login button
     Button Login;
 
-
+//declare output textview
     TextView Output;
 
-
+//declare userLocalStore for dealing with share preference
     UserLocalStore userLocalStore;
-
+//oncreate is called when login page (activity) loads
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,8 @@ public class Login extends WelcomeScreen {
         //set up keyboard hiding
         setupUI(findViewById(R.id.loginpage));
 
-
+// reference the text field (Edit text) form the content_login.xml
+        //initialize them to our variable
         Email = (EditText) findViewById(R.id.EnterEmail);
 
         Password = (EditText) findViewById(R.id.EnterPassword);
@@ -43,10 +47,10 @@ public class Login extends WelcomeScreen {
 
 
 
-
+// reference the login button
         Login = (Button) findViewById(R.id.Login);
 
-
+// refeence the output textView
         Output = (TextView) findViewById(R.id.Output);
 
 
@@ -68,12 +72,14 @@ public class Login extends WelcomeScreen {
 
 
 
-
+// setup onclick listener to login button
 
         Login.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                //get whatever typed in the textfield
+                //and store them to local variable
 
                 String emailAddress = Email.getText().toString();
 
@@ -82,31 +88,49 @@ public class Login extends WelcomeScreen {
                 //This is where we will connect to Node.js
 
 
-                String Answer = emailAddress + password;
+                //String Answer = emailAddress + password;
 
 
 
 
-                Output.setText(Answer);
+                //Output.setText(Answer);
+
+
+
 
 
 
                 //Login verification
+
+                //Make a new user
                 User user = new User(emailAddress, "RANDOM", password);
 
-
+                //get the registered user
                 User registeredUser = userLocalStore.getLoggedInUser();
 
 
-                Log.d("TAG", "FIRST");
+
+
+
+                //user regex for validating email
+                String myPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+                //regex pattern
+                Pattern p = Pattern.compile(myPattern);
+
+                //Check if emailAddress matches a valid email
+                Matcher m = p.matcher(emailAddress);
+
+
 
 
                 //Compare the passwords and emails
                 // of the registered user and the user logging in
-                if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email)) {
+                if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email) && m.matches()) {
 
 
-                    Log.d("TAG", "SECOND");
+                    //Log.d("TAG", "Logged in");
                     //set user loggedIn to true
 
                     userLocalStore.setUserLoggedIn(true);
@@ -118,9 +142,17 @@ public class Login extends WelcomeScreen {
 
                 }
 
+                else if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email)) {
+
+
+                    Output.setText("Something is wrong with your email.");
+
+                }
+
+
                 else {
 
-                    Output.setText("Something is wrong with your username or password.");
+                    Output.setText("Something is wrong with your email or password.");
 
                 }
 
@@ -205,6 +237,28 @@ public class Login extends WelcomeScreen {
                 setupUI(innerView);
             }
         }
+    }
+
+
+
+
+
+
+
+    //clearing functions to clear text field when
+    //user hits the x's
+
+    public void clearEmail(View v) {
+
+        Email.setText("");
+
+    }
+    
+
+    public void clearPassword(View v) {
+
+        Password.setText("");
+
     }
 
 
