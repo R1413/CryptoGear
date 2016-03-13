@@ -3,7 +3,6 @@ package com.jocundstudio.cryptogear;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Login extends WelcomeScreen {
 
@@ -85,31 +88,49 @@ public class Login extends WelcomeScreen {
                 //This is where we will connect to Node.js
 
 
-                String Answer = emailAddress + password;
+                //String Answer = emailAddress + password;
 
 
 
 
-                Output.setText(Answer);
+                //Output.setText(Answer);
+
+
+
 
 
 
                 //Login verification
+
+                //Make a new user
                 User user = new User(emailAddress, "RANDOM", password);
 
-
+                //get the registered user
                 User registeredUser = userLocalStore.getLoggedInUser();
 
 
-                Log.d("TAG", "FIRST");
+
+
+
+                //user regex for validating email
+                String myPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+                //regex pattern
+                Pattern p = Pattern.compile(myPattern);
+
+                //Check if emailAddress matches a valid email
+                Matcher m = p.matcher(emailAddress);
+
+
 
 
                 //Compare the passwords and emails
                 // of the registered user and the user logging in
-                if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email)) {
+                if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email) && m.matches()) {
 
 
-                    Log.d("TAG", "SECOND");
+                    //Log.d("TAG", "Logged in");
                     //set user loggedIn to true
 
                     userLocalStore.setUserLoggedIn(true);
@@ -121,9 +142,17 @@ public class Login extends WelcomeScreen {
 
                 }
 
+                else if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email)) {
+
+
+                    Output.setText("Something is wrong with your email.");
+
+                }
+
+
                 else {
 
-                    Output.setText("Something is wrong with your username or password.");
+                    Output.setText("Something is wrong with your email or password.");
 
                 }
 
