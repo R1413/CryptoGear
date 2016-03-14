@@ -29,9 +29,9 @@ public class UserLocalStore {
         SharedPreferences.Editor spEditor = userLocalDatabase.edit();
         //store the attributes
         //updates what's stored in sharedPreferences
-        spEditor.putString("email", user.email);
-        spEditor.putString("username", user.username);
-        spEditor.putString("password", user.password);
+        spEditor.putString("email", user.Email);
+        spEditor.putString("username", user.Username);
+        spEditor.putString("password", user.Password);
 
 
 

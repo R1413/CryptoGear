@@ -103,7 +103,7 @@ public class Login extends WelcomeScreen {
                 //Login verification
 
                 //Make a new user
-                User user = new User(emailAddress, "RANDOM", password);
+                User user = new User(emailAddress, password);
 
                 //get the registered user
                 User registeredUser = userLocalStore.getLoggedInUser();
@@ -127,7 +127,7 @@ public class Login extends WelcomeScreen {
 
                 //Compare the passwords and emails
                 // of the registered user and the user logging in
-                if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email) && m.matches()) {
+                if (user.Password.equals(registeredUser.Password) && user.Email.equals(registeredUser.Email) && m.matches()) {
 
 
                     //Log.d("TAG", "Logged in");
@@ -142,7 +142,7 @@ public class Login extends WelcomeScreen {
 
                 }
 
-                else if (user.password.equals(registeredUser.password) && user.email.equals(registeredUser.email)) {
+                else if (user.Password.equals(registeredUser.Password) && user.Email.equals(registeredUser.Email)) {
 
 
                     Output.setText("Something is wrong with your email.");

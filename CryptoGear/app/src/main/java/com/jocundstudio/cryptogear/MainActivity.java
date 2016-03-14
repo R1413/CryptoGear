@@ -280,9 +280,9 @@ public class MainActivity extends WelcomeScreen {
 
         User user = userLocalStore.getLoggedInUser();
 
-        email.setText(user.email);
-        username.setText(user.username);
-        password.setText(user.password);
+        email.setText(user.Email);
+        username.setText(user.Username);
+        password.setText(user.Password);
 
 
 
