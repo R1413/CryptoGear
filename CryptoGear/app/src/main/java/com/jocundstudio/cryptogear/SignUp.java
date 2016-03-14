@@ -130,7 +130,11 @@ public class SignUp extends WelcomeScreen {
                     userLocalStore.storeUserData(registeredData);
 
 
-                    //This is where we will connect to Node.js
+                    //This is where we will connect to our database
+
+                    DatabaseConnector SigningUp = new DatabaseConnector();
+
+                    SigningUp.execute("10.0.0.11");
 
 
                     //String Answer = emailAddress + username + password;
