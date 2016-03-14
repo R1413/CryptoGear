@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost',	//This should hold the IP of the database once we have it
 	user: 'josecanizares',
-	password: 'Arte!!Mundi17',	//Replace [PASSWORD] with the database password
+	password: '[username]',	//Replace [PASSWORD] with the database password
 	database: 'CryptoDatabase'	//Replace [DATABASE] with the database name
 });
 
