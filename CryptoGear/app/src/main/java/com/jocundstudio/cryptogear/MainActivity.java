@@ -87,10 +87,10 @@ public class MainActivity extends WelcomeScreen {
             public void onClick(View v) {
 
 
-                //specify url
+                //specify url with port number
                 //example url: http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo
                 //
-                new JSONTask().execute("http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo");
+                new JSONTask().execute("10.201.14.184:8080");
 
             }
 
@@ -220,6 +220,7 @@ public class MainActivity extends WelcomeScreen {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             //take from our buffer and output it
+            Log.d("TAG2", result);
             Output.setText(result);
         }
     }
