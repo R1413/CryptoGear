@@ -89,8 +89,10 @@ public class MainActivity extends WelcomeScreen {
 
                 //specify url with port number
                 //example url: http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo
-                //
-                new JSONTask().execute("10.201.14.184:8080");
+                //example url: "http://10.202.14.104:8080"
+                //can't use localhost since localhost in the emulator
+                //is the emulator itself
+                new JSONTask().execute("http://10.201.15.123:8080/Cities");
 
             }
 
@@ -138,11 +140,11 @@ public class MainActivity extends WelcomeScreen {
 
                 connection.connect();
 
-                //Log.d("TAG", "Before getting input stream.");
+                Log.d("TAG", "Before getting input stream.");
 
                 InputStream stream = connection.getInputStream();
 
-                //Log.d("TAG", "Before getting input stream.");
+                Log.d("TAG", "Before getting input stream.");
 
                 reader = new BufferedReader(new InputStreamReader(stream));
 
@@ -151,19 +153,19 @@ public class MainActivity extends WelcomeScreen {
 
                 String line = "";
 
-                //Log.d("TAG", "Before while loop.");
+                Log.d("TAG", "Before while loop.");
 
                 //read in data
                 while ((line = reader.readLine()) != null) {
 
-                    //Log.d("TAG", "In while loop.");
+                    Log.d("TAG", "In while loop.");
                     buffer.append(line);
 
 
                 }
 
                 //passed to onPostExecute method
-                //Log.d("TAG", buffer.toString() + "<--json data from url.");
+                Log.d("TAG", buffer.toString() + "<--json data from url.");
                 return buffer.toString();
 
 
