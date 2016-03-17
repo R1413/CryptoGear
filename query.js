@@ -6,9 +6,9 @@ var mysql = require('mysql');
 //First you need to create a connection to the database
 var connection = mysql.createConnection({
 	host: 'localhost',	//This should hold the IP of the database once we have it
-	user: 'josecanizares',
-	password: 'PASSWORD',	//Replace [PASSWORD] with the database password
-	database: 'CryptoDatabase'	//Replace [DATABASE] with the database name
+	user: 'USERNAME', //the name of your computer user
+	password: 'PASSWORD',	//mysql password
+	database: 'DATABASE'	//the database you make
 });
 
 
