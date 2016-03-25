@@ -3,14 +3,17 @@ package com.jocundstudio.cryptogear;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -99,6 +102,8 @@ public class SignUp extends WelcomeScreen {
                 String password = Password.getText().toString();
 
 
+                Log.d("username", username);
+                Log.d("password", password);
 
 
 
@@ -112,14 +117,30 @@ public class SignUp extends WelcomeScreen {
                 //Check if emailAddress matches a valid email
                 Matcher m = p.matcher(emailAddress);
 
+                if (username.equals("") && password.equals("")) {
 
+                    Output.setText("Please type in a username and password");
 
+                }
+
+                else if (username.equals("")) {
+
+                    Output.setText("Please type in a username.");
+                }
+
+                else if (password.equals("")) {
+
+                    Output.setText("Please type in a password.");
+
+                }
 
 
 
 
                 //if the user is signing up with a valid email address
-                if(m.matches()) {
+                //and if there is something typed into the
+                //password and username fields
+                else if(m.matches()) {
 
 
                     //registered data (the new user)
@@ -132,45 +153,90 @@ public class SignUp extends WelcomeScreen {
 
                     //This is where we will connect to our database
 
-                    DatabaseConnector SigningUp = new DatabaseConnector();
-
-                    SigningUp.execute("10.0.0.11");
-
-
-                    //String Answer = emailAddress + username + password;
-
-                    //Output.setText(Answer);
+                    //first create json-formatted info of the user
+                    JSONObject json = new JSONObject();
 
 
-                    //dynamically create button
-                    Button Login = new Button(SignUp.this);
-                    Login.setText("Login");
-
-                    RelativeLayout ll = (RelativeLayout) findViewById(R.id.signuppage);
-
-                    //layout
-                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                    lp.addRule(RelativeLayout.BELOW, R.id.password);
-                    lp.addRule(RelativeLayout.CENTER_VERTICAL);
-                    lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
-                    ll.addView(Login, lp);
 
 
-                    Login.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                    try {
+                        json.put("email", emailAddress);
+                    } catch (JSONException e) {
+                        Log.e("Crypto", "Unexpected JSON exception.", e);
+                    }
+
+                    try {
+                        json.put("username", username);
+                    } catch (JSONException e) {
+                        Log.e("Crypto", "Unexpected JSON exception.", e);
+                    }
 
 
-                            //go to the main activity page
-                            startActivity(new Intent(SignUp.this, Login.class));
+                    try {
+                        json.put("password", password);
+                    } catch (JSONException e) {
+                        Log.e("Crypto", "Unexpected JSON exception.", e);
+                    }
 
 
-                        }
-                    });
 
-                    //hide the sign up button.
-                    SignUp.setVisibility(View.GONE);
 
+
+
+                    //use the DatabaseConnector class
+                    //create a new instance of that inner class AddNewAccountTask
+                    DatabaseConnector DC = new DatabaseConnector("10.0.0.8");
+                    DatabaseConnector.AddNewAccountTask SignUpTask = DC.new AddNewAccountTask();
+
+                    //execute it with the json
+                    //this will make a new account in the database
+                    SignUpTask.execute(json);
+
+
+
+                    while(DC.Done == false)
+                    {
+                        //wait for background task
+                    }
+
+                    if (DC.isAccountValid() == false) {
+
+                        Output.setText("Email already exists.");
+
+                    }
+
+
+                    else {
+
+                        Output.setText("Added your account!");
+                        //dynamically create button
+                        Button Login = (Button) findViewById(R.id.SignUp);
+                        Login.setText("Login");
+                        Login.setBackgroundColor(0xFFF9F383);
+
+
+                        //clear previous onclicklistener
+                        Login.setOnClickListener(null);
+
+
+
+                        //make it go to login page now
+                        Login.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+
+                                //go to the main activity page
+                                startActivity(new Intent(SignUp.this, Login.class));
+
+
+                            }
+                        });
+
+                        //hide the sign up button.
+                        //SignUp.setVisibility(View.GONE);
+
+                    }
 
                 }
 
@@ -178,7 +244,7 @@ public class SignUp extends WelcomeScreen {
 
                 else {
 
-
+                    //regex validation
                     Output.setText("Invalid email address.");
 
 
@@ -189,15 +255,6 @@ public class SignUp extends WelcomeScreen {
 
             }
         });
-
-
-
-
-
-
-
-
-
 
 
 

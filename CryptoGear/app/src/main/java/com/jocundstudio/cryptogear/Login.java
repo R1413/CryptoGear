@@ -3,6 +3,7 @@ package com.jocundstudio.cryptogear;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -88,12 +92,6 @@ public class Login extends WelcomeScreen {
                 //This is where we will connect to Node.js
 
 
-                //String Answer = emailAddress + password;
-
-
-
-
-                //Output.setText(Answer);
 
 
 
@@ -103,14 +101,10 @@ public class Login extends WelcomeScreen {
                 //Login verification
 
                 //Make a new user
-                User user = new User(emailAddress, password);
+                //User user = new User(emailAddress, password);
 
                 //get the registered user
-                User registeredUser = userLocalStore.getLoggedInUser();
-
-
-
-
+                //User registeredUser = userLocalStore.getLoggedInUser();
 
                 //user regex for validating email
                 String myPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -125,10 +119,25 @@ public class Login extends WelcomeScreen {
 
 
 
-                //Compare the passwords and emails
-                // of the registered user and the user logging in
-                if (user.Password.equals(registeredUser.Password) && user.Email.equals(registeredUser.Email) && m.matches()) {
+                if (emailAddress.equals("") && password.equals("")) {
 
+                    Output.setText("Please type in your email and password");
+
+                }
+
+                else if (emailAddress.equals("")) {
+
+                    Output.setText("Please type in your email.");
+                }
+
+                else if (password.equals("")) {
+
+                    Output.setText("Please type in your password.");
+
+                }
+
+
+                else if (m.matches()) {
 
                     //Log.d("TAG", "Logged in");
                     //set user loggedIn to true
@@ -136,30 +145,68 @@ public class Login extends WelcomeScreen {
                     userLocalStore.setUserLoggedIn(true);
 
 
-                    //go to the main activity page
-                    startActivity(new Intent(Login.this, MainActivity.class));
+                    //This is where we will connect to our database
+
+                    //first create json-formatted info of the user
+                    JSONObject json = new JSONObject();
+
+
+                    try {
+                        json.put("email", emailAddress);
+                    } catch (JSONException e) {
+                        Log.e("Crypto", "Unexpected JSON exception.", e);
+                    }
+
+
+                    try {
+                        json.put("password", password);
+                    } catch (JSONException e) {
+                        Log.e("Crypto", "Unexpected JSON exception.", e);
+                    }
+
+
+                    //use the DatabaseConnector class
+                    //create a new instance of that inner class AddNewAccountTask
+                    DatabaseConnector DC = new DatabaseConnector("10.0.0.8");
+                    DatabaseConnector.VerifyLoginTask LoginTask = DC.new VerifyLoginTask();
+
+                    //execute it with the json
+                    //this will make a new account in the database
+                    LoginTask.execute(json);
+
+
+                    while (DC.Done == false) {
+                        //wait for background task to finish
+                    }
+
+                    if (DC.VerifyStatus().equals("IncorrectEmail")) {
+
+                        Output.setText("Invalid email.");
+
+                    } else if (DC.VerifyStatus().equals("CorrectEmail")) {
+
+                        Output.setText("Something is wrong with your password.");
+
+                    } else if (DC.VerifyStatus().equals("CorrectPassword")) {
+
+                        Output.setText("You are logging in!");
+                        //go to the main activity page
+                        startActivity(new Intent(Login.this, MainActivity.class));
+
+                    }
 
 
                 }
 
-                else if (user.Password.equals(registeredUser.Password) && user.Email.equals(registeredUser.Email)) {
-
-
-                    Output.setText("Something is wrong with your email.");
-
-                }
 
 
                 else {
 
-                    Output.setText("Something is wrong with your email or password.");
+                    //regex validation
+                    Output.setText("Invalid email address.");
+
 
                 }
-
-
-
-
-
 
 
 

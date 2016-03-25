@@ -13,6 +13,19 @@
     tools:showIn="@layout/activity_sign_up"
     android:id="@+id/signuppage">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sign up"
+        android:id="@+id/SignUp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/EnterEmail"
+        android:layout_alignEnd="@+id/EnterEmail"
+        android:focusableInTouchMode="true"
+        android:allowUndo="true"
+        android:background="@android:color/transparent"
+        style="?android:attr/borderlessButtonStyle"/>
+
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -21,25 +34,11 @@
         android:textAlignment="center"
         android:imeOptions="actionDone"
         android:singleLine="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:id="@+id/SignUp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Output"
-        android:textSize="40dp"
-        android:textAlignment="center"
-        android:layout_below="@+id/EnterPassword"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/SignUp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -50,7 +49,10 @@
         android:imeOptions="actionDone"
         android:singleLine="true"
         android:layout_below="@+id/EnterEmail"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -62,7 +64,23 @@
         android:imeOptions="actionDone"
         android:singleLine="true"
         android:layout_below="@+id/EnterUserName"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Output"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/EnterPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/EnterPassword"
+        android:layout_alignEnd="@+id/EnterPassword"
+        android:textIsSelectable="true" />
 
     <ImageButton
         android:layout_width="20dp"
@@ -71,14 +89,14 @@
         android:src="@drawable/crypto_x_button"
         android:scaleType="centerInside"
         android:adjustViewBounds="false"
-        android:layout_alignRight="@+id/EnterEmail"
-        android:layout_alignEnd="@+id/EnterEmail"
         android:layout_alignTop="@+id/EnterEmail"
         android:layout_above="@+id/EnterUserName"
         android:backgroundTint="#ffffff"
         android:background="@android:color/transparent"
         android:tint="#e0d1d1"
-        android:onClick="clearEmail" />
+        android:onClick="clearEmail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="20dp"
@@ -94,7 +112,9 @@
         android:layout_above="@+id/EnterPassword"
         android:background="@android:color/transparent"
         android:tint="#e0d1d1"
-        android:onClick="clearUsername" />
+        android:onClick="clearUsername"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="20dp"
@@ -111,5 +131,23 @@
         android:background="@android:color/transparent"
         android:tint="#e0d1d1"
         android:onClick="clearPassword" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/crypto_logo"
+        android:cropToPadding="false"
+        android:focusable="false"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/EnterEmail"
+        android:layout_toLeftOf="@+id/SignUp"
+        android:layout_toStartOf="@+id/SignUp"
+        android:paddingTop="40dp"
+        android:paddingLeft="90dp"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

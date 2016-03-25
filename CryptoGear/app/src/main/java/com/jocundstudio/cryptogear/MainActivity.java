@@ -1,12 +1,20 @@
 package com.jocundstudio.cryptogear;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,11 +44,19 @@ public class MainActivity extends WelcomeScreen {
 
     Button Connect;
 
+    EditText UserInput;
+
+    Button Post;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //set up keyboard hiding
+        setupUI(findViewById(R.id.mainactivity));
 
         email = (TextView) findViewById(R.id.email);
         username = (TextView) findViewById(R.id.username);
@@ -53,6 +69,10 @@ public class MainActivity extends WelcomeScreen {
 
 
         Connect = (Button) findViewById(R.id.Connect);
+
+
+        UserInput = (EditText) findViewById(R.id.UserInput);
+        Post = (Button) findViewById(R.id.Post);
 
 
         userLocalStore = new UserLocalStore(this);
@@ -92,7 +112,45 @@ public class MainActivity extends WelcomeScreen {
                 //example url: "http://10.202.14.104:8080"
                 //can't use localhost since localhost in the emulator
                 //is the emulator itself
-                new JSONTask().execute("http://10.201.15.123:8080/Cities");
+
+                new JSONTask().execute("http://10.0.0.2:8080/");
+
+
+            }
+
+        });
+
+
+
+
+        Post.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+                JSONObject json = new JSONObject();
+
+
+                String input = UserInput.getText().toString();
+
+                try {
+                    json.put("user", input);
+                } catch (JSONException e) {
+                    Log.e("Crypto", "Unexpected JSON exception.", e);
+                }
+
+                try {
+                    json.put("password", input);
+                } catch (JSONException e) {
+                    Log.e("Crypto", "Unexpected JSON exception.", e);
+                }
+
+
+
+
+                new PostTask().execute(json);
+
 
             }
 
@@ -103,6 +161,27 @@ public class MainActivity extends WelcomeScreen {
 
 
 
+    }
+
+
+
+    //write to database
+    public class PostTask extends AsyncTask<JSONObject, String, JSONObject> {
+
+        @Override
+        protected JSONObject doInBackground(JSONObject... params) {
+
+
+            //make an Http connection
+            HttpURLConnection connection = null;
+            BufferedReader reader = null;
+
+
+
+
+
+
+            JSONObject jData = params[0];
 
 
 
@@ -112,16 +191,136 @@ public class MainActivity extends WelcomeScreen {
 
 
 
+            try {
+
+                URL url = new URL("http://10.0.0.2:8080/Signup");
+
+                connection = (HttpURLConnection) url.openConnection();
+
+
+
+                Log.d("TAG", "Before requesting post.");
+
+                connection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+
+                //Post
+                connection.setRequestMethod("POST");
+
+                //connection.connect();
+
+
+                connection.setDoOutput(true);
+                connection.setChunkedStreamingMode(0);
+
+                Log.d("TAG4", jData.toString());
+
+
+                connection.getOutputStream().write(jData.toString().getBytes("UTF-8"));
+
+
+                // Check the error stream first, if this is null then there have been no issues with the request
+                InputStream inputStream = connection.getErrorStream();
+                if (inputStream == null)
+                    inputStream = connection.getInputStream();
+
+                // Read everything from our stream
+                BufferedReader responseReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+
+                    while ((inputLine = responseReader.readLine()) != null) {
+
+                        response.append(inputLine);
+                    }
+
+                responseReader.close();
+
+                connection.disconnect();
+
+
+                JSONObject json2 = new JSONObject();
 
 
 
 
+                try {
+                    json2.put("success", "success2");
+                } catch (JSONException e) {
+                    Log.e("Crypto", "Unexpected JSON exception.", e);
+                }
+
+                return json2;
+
+
+
+            } catch(MalformedURLException e) {
+
+                e.printStackTrace();
+
+            } catch(IOException e) {
+
+                e.printStackTrace();
+
+            } finally
+
+            {
+                //can't disconnect something that's null
+
+                if (connection != null) {
+
+                    connection.disconnect();
+                    Log.d("TAG", "Connection disconnected.");
+                }
+
+
+                //to close reader you need a try catch block
+                try {
+                    //can't close something that's null
+                    if (reader != null) {
+
+                        reader.close();
+                        Log.d("TAG", "Reader closed.");
+                    }
+
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            //passed to onPostExecute method
+            return null;
+
+
+
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject result) {
+
+            String result2 = result.toString();
+            super.onPostExecute(result);
+            //take from our buffer and output it
+            Log.d("TAG2", result2);
+            Output.setText(result2);
+        }
 
 
     }
 
 
-    //read json from nodejs
+
+
+
+
+
+
+
+
+    //read json from nodejs which makes a GET request to our mysql database
     public class JSONTask extends AsyncTask<String, String, String> {
 
         @Override
@@ -137,20 +336,13 @@ public class MainActivity extends WelcomeScreen {
                 URL url = new URL(params[0]);
 
                 connection = (HttpURLConnection) url.openConnection();
-
                 connection.connect();
 
                 Log.d("TAG", "Before getting input stream.");
-
                 InputStream stream = connection.getInputStream();
-
                 Log.d("TAG", "Before getting input stream.");
-
                 reader = new BufferedReader(new InputStreamReader(stream));
-
-
                 StringBuffer buffer = new StringBuffer();
-
                 String line = "";
 
                 Log.d("TAG", "Before while loop.");
@@ -161,30 +353,24 @@ public class MainActivity extends WelcomeScreen {
                     Log.d("TAG", "In while loop.");
                     buffer.append(line);
 
-
                 }
 
                 //passed to onPostExecute method
                 Log.d("TAG", buffer.toString() + "<--json data from url.");
                 return buffer.toString();
 
-
-
             } catch(MalformedURLException e) {
 
                 e.printStackTrace();
-
 
             } catch(IOException e) {
 
                 e.printStackTrace();
 
-
             } finally
 
             {
                 //can't disconnect something that's null
-
                 if (connection != null) {
 
                     connection.disconnect();
@@ -208,12 +394,10 @@ public class MainActivity extends WelcomeScreen {
 
                 }
 
-
             }
 
             //passed to onPostExecute method
             return null;
-
 
 
         }
@@ -226,6 +410,28 @@ public class MainActivity extends WelcomeScreen {
             Output.setText(result);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -298,6 +504,78 @@ public class MainActivity extends WelcomeScreen {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //hideKeyboard function
+    public static void hideSoftKeyboard(Activity activity) {
+
+
+
+        InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+
+
+        if (activity.getCurrentFocus() != null) {
+            //leave last parameter 0
+            inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+        }
+
+    }
+
+
+
+
+    //function for hiding keyboard when user clicks away from EditText
+    public void setupUI(View view) {
+
+
+
+
+        //Set up touch listener for non-text box views to hide keyboard.
+        if(!(view instanceof EditText)) {
+
+            view.setOnTouchListener(new View.OnTouchListener() {
+
+                public boolean onTouch(View v, MotionEvent event) {
+                    //Log.d("TAG", "You clicked on the sign up activity.");
+                    hideSoftKeyboard(MainActivity.this);
+                    return false;
+                }
+
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+
+                View innerView = ((ViewGroup) view).getChildAt(i);
+
+                setupUI(innerView);
+            }
+        }
+    }
 
 
 

@@ -1,21 +1,18 @@
 CREATE TABLE User_Accounts(
-First_Name VARCHAR(30) NOT NULL,
-Last_Name VARCHAR(30) NOT NULL,
-UserName VARCHAR(255),
-Password VARCHAR(255),
-Email VARCHAR(60) NOT NULL PRIMARY KEY,
-City VARCHAR(40) NOT NULL,
-State CHAR(40) NOT NULL,
-User_ID INT UNSIGNED,
-Games_Won INT(11) NOT NULL,
-Games_Lost INT(11) NOT NULL,
-Experience INT(11) NOT NULL,
-Reliability INT(11) NOT NULL);
+First_Name VARCHAR(30) DEFAULT "",
+Last_Name VARCHAR(30) DEFAULT "",
+UserName VARCHAR(255) NOT NULL,
+Password VARCHAR(255) NOT NULL,
+Email VARCHAR(60) NOT NULL,
+City VARCHAR(40) DEFAULT "",
+Country CHAR(40) DEFAULT "",
+User_ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Games_Won INT(40) NOT NULL DEFAULT 0,
+Games_Lost INT(40) NOT NULL DEFAULT 0,
+Experience INT(40) NOT NULL DEFAULT 0,
+Reliability INT(40) DEFAULT 50);
 
-INSERT INTO User_Accounts VALUE ('Anh-Khoa', 'Than', NULL, NULL, 'anhkhoa.than@colorado.edu', 'Denver', 'Colorado', NULL, '100', '3', '1000', '10000');
-INSERT INTO User_Accounts VALUE ('Raymond', 'Duncan', NULL, NULL, 'BossRay@colorado.edu', 'Boulder', 'Colorado', NULL, '1000', '0', '100000', '100000');
-INSERT INTO User_Accounts VALUE ('Jose', 'Canizares', NULL, NULL, 'JoseTheHardWorker@colorado.edu', 'Boulder', 'Colorado', NULL, '100', '10', '500', '50000');
-INSERT INTO User_Accounts VALUE ('Sayed', 'Sarders', NULL, NULL, 'SayedThePlayer@colorado.edu', 'Littleton', 'Colorado', NULL, '100', '3', '100000000', '6000000');
-
-
-
+INSERT INTO User_Accounts VALUE (DEFAULT, DEFAULT, 'anhkhoa', '1234', 'anhkhoa.than@colorado.edu', 'Denver', 'USA', NULL, '0', '0', '0', DEFAULT);
+INSERT INTO User_Accounts VALUE (DEFAULT, DEFAULT, 'raymond', '1234', 'raymond.duncan@colorado.edu', 'Boulder', 'USA', NULL, '0', '0', '0', DEFAULT);
+INSERT INTO User_Accounts VALUE (DEFAULT, DEFAULT, 'joca', '1234', 'jose.canizares@colorado.edu', 'Boulder', 'USA', NULL, '0', '0', '0', DEFAULT);
+INSERT INTO User_Accounts VALUE (DEFAULT, DEFAULT, 'sayed', '1234', 'sayed.sarders@colorado.edu', 'Littleton', 'USA', NULL, '0', '0', '0', DEFAULT);
