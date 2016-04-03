@@ -2,20 +2,37 @@
   <head>
     <title> Crypto Log In </title>
     <link href="login.css" type="text/css" rel="stylesheet" />
+    <script src="login.js"></script>
   </head>
 
   <body>
-    <div id="english">
-    <h1> hello world </h1>
+	<div id="CenterSection">
+		
+		
+	    <img id="CryptoLogo" src = "Crypto_Logo.svg" alt = "Suitcase." />
+	
+    
+        <h1> Go ahead and log in. Encryption awaits you. </h1>
+    
+
+    <div id="LoginSection">
+  <form>
+  <p>username: </p> 
+  <input type="text" name="firstname" id="username">
+  <p>password: </p>
+  <input type="hidden" name="password">
+  <input type="text" class="masked" id="password" autocomplete="off">
+  </form>
+
+    <p id="CreateAccount"> Create Account </p>
+    
+    <button type="button" id="LogIn">Log In</button>
+    
     </div>
-    <div id="spanish">
-      <h2>Hola mundo</h2>
-    </div>
-    <div class="french">
-      <h2>Bonjour Tout le monde</h2>
+    
     </div>
     <p>
-      <span id="1">This is a paragraph.</span>
+
     </p>
   </body>
 

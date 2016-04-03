@@ -1,12 +1,12 @@
 body {
 
-  background-color: #222222;
+  background-color: #1c1d1c;
 }
 
 h1 {
   font-family: Helvetica, Arial, sans-serif;
-  color: blue;
-
+  color: #9E949C;
+  font-size: 70%;
 
 }
 
@@ -15,23 +15,82 @@ div {
   text-align: center;
 }
 
-#english {
-  float: left;
+#CenterSection {
+  
+  background-color: #35363d;
+  align-content: center;
+  margin: 0 auto;
+  width: 341px;
+  height: 100vh;
 
 }
 
-#spanish {
-  float: right;
+/*phone version*/
+@media screen and (max-width: 590px) {
+	
+	#CenterSection {
+		
+		width: 100%;
+		
+	}
+	
+	
+}
 
+#LoginSection {
+  
+  background-color: #35363d;
+  align-content: center;
+  margin: 0 auto;
 
 }
 
-.french {
-  clear: left;
-  float: left;
+#CryptoLogo {
 
+	align-content: center;
+	
+	background-color: #35363d;
+	
+	
+	
 }
 
-span {
-  font-weight: bold;
+#CreateAccount {
+	
+	float: left;
+}
+
+#username, #password {
+	background-color: #35363d;
+	border: none;
+    border-bottom:solid 1px #fffafa;
+    outline: none; /* prevents textbox highlight in chrome */
+    color: #9E949C;
+    
+}
+
+
+
+#LogIn {
+	border: none;
+    background-color: #aba3a4;
+    height:50px;
+    width:100px;
+    cursor:pointer;
+    color:#ffffff;
+    float: right;
+    
+}
+
+#LogIn:hover {
+	
+	background-color: #d4d5da;
+	
+}
+
+
+p {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #9E949C;
+	font-size: 70%;
 }
