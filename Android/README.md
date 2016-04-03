@@ -15,7 +15,7 @@ Crypto
 An app that helps users build up their knowledge about cryptography by way of an encryption/decryption game. A user of this app should be able to play a part in encrypting and decrypting messages so that he/she can enjoy the game, and learn about cryptography at the same time.
 
 ####Vision Statement: 
-To create a more security competent society.
+To help more people understand how encryption works.
 
 ####Motivation: 
 As society is becoming more reliant on technology, security becomes an important topic. Providing the knowledge of how to maintain a safe security status is our motivation for this project. 
