@@ -34,7 +34,15 @@
   
 	                <input type="password" id="password" name="password" placeholder="password"/>
 	                <br>	  
-	                <input type="submit" id="LogIn" value="Log In">
+<!-- 	                <input type="submit" id="LogIn" value="Log In" onClick="clickedButton()"> -->
+                    <input id="LogIn" type="button" value="LogIn" onclick="return btn_onClick()"/>
+                    
+                    <script language="Javascript" type="text/javascript">
+                        function btn_onClick()
+                        {
+                            window.location.href="index.html";
+                        }
+                        </script>
 	  
 	                <p id="CreateAccount"> Create <br> Account </p>
 	            </form>

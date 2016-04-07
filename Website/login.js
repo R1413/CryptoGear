@@ -1,10 +1,14 @@
 
 
-
 $(document).ready(function() {
 // Start when document will be ready.
 $("#LogIn").click(function() {
+    
+    
+    window.location = 'index.html';
+    console.log("clicked");
 
+    window.location.href="index.html";
 //$("#passwordClone0").removeClass("invalid");
 
 var email = $("#email").val(); // Store E-mail input value in the variable email.
@@ -21,3 +25,12 @@ $("#passwordClone0").effect("shake", { direction: "left", times: 3, distance: 8}
 }
 });
 });
+
+
+function clickedButton()
+            {
+
+                window.location = 'index.html';
+
+            }
+            
