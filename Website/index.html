@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link href="login.css" type="text/css" rel="stylesheet" />
+        <script src="login.js"></script>
+        
+  </head>
+
+  <body background="images/tides.png">
+	<div id="CenterSection">	
+    	<p> Profile </p>
+    	<br>
+    	<p> Training </p>
+    	<br>
+    	<p> Playground </p>
+    	<br>
+    	<p> Versus </p>
+    	<br>
+    	<p> About Us </p>
+    	<br>
+    	<p> Contact </p>
+    	<br>
+    	<form id="forms">
+                    <input type="text" name="email" id="email" placeholder="email" autofocus>
+                    <br>
+  
+	                <input type="password" id="password" name="password" placeholder="password"/>
+	                <br>	  
+<!-- 	                <input type="submit" id="LogIn" value="Log In" onClick="clickedButton()"> -->
+
+                    <p id="demo"></p>
+                    <input id="LogIn" type="button" value="LogIn" onclick="return btn_onClick('encryptions', 3, 5, 26)"/>
+                    
+                    <script language="Javascript" type="text/javascript">
+                        function btn_onClick(string)
+                        {
+                        
+                            window.location = 'index.html';     
+
+                            
+                        }
+                        </script>
+	  
+	                <p id="Encrypt"> Create <br> Account </p>
+	            </form>
+
+	    </div>
+	    
+    </body>
+</html>

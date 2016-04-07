@@ -3,17 +3,10 @@
 $(document).ready(function() {
 // Start when document will be ready.
 $("#LogIn").click(function() {
-    
-    
-    window.location = 'index.html';
-    console.log("clicked");
 
-    window.location.href="index.html";
-//$("#passwordClone0").removeClass("invalid");
-
-var email = $("#email").val(); // Store E-mail input value in the variable email.
-var password = $("#password").val(); // Store Password input value in the variable password.
-/* Check if email=formget@gmail.com and password=fugo then,Show the message Account Validated!!! in the Div having id message.*/
+var email = $("#email").val();
+var password = $("#password").val(); 
+/* Check if email=formget@gmail.com 
 if (email == "formget@gmail.com" && password == "fugo") {
 // $("#message").html("Account Validated!!!");
 }
@@ -31,6 +24,7 @@ function clickedButton()
             {
 
                 window.location = 'index.html';
+                
 
             }
             
