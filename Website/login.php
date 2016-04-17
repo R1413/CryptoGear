@@ -23,7 +23,7 @@ function main() {
         } else if ($type == "login") {
             login($email, $password);
         } else {
-            redirect("", "Oops! Post information wasn't passed.");
+            redirect("index", "Oops! Post information wasn't passed.");
         }
     }
 }
@@ -87,7 +87,7 @@ function login($email, $password) {
         $_SESSION["name"] = $email;
         redirect("versus", "Login successful! Welcome back!");
     } else {
-        print("Invalid information, try again.");
+        print("Invalid login account, try again.");
     }
 }
 
