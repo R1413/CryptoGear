@@ -1,0 +1,98 @@
+/*Global Changes*/
+
+
+.cryptoGame {
+	background: orange;
+	width: 75%;
+	max-width: 1330px;
+	height: 600px;
+}
+
+#leftColumn {
+	background: red;
+	width: 250px;
+	height: 100%;;
+	float: left;
+}
+
+#rightColumn {
+	background: gray;
+	width: 70%;
+	float: right;
+}
+
+.tabs {
+	margin: 15px 5px;
+	height: 90%;
+}
+
+.tab-list {
+	background: gray;
+	width: 30px;
+	height: 100%;
+	float: left;
+}
+
+.tab-list ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tab-list li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+
+.tab-list a {
+	background: yellow;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	transition: all linear 0.05s;
+	float: left;
+}
+
+.tab-list a:hover {
+	background: green;
+} 
+
+.tab-list li.active a, .tab-list li.active a:hover {
+	background: green;
+}
+
+.tab-content {
+	background: blue;
+	width: 200px;
+	height: 100%;
+	float: left;
+}
+
+.tab {
+	display: none;
+}
+
+.tab.active {
+	display: block;
+}
+
+#passiveText {
+	background: blue;
+	margin: 15px 20px;
+	width: 90%;
+	height: 150px;
+	display: block;
+	float: left;
+}
+
+#activeText {
+	background: teal;
+	margin: 15px 20px;
+	width: 90%;
+	height: 300px;
+	display: block;
+	float: left;
+}
