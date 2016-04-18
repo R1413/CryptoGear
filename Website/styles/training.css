@@ -1,0 +1,54 @@
+/*Training Formatting*/
+
+p {
+    font-weight: 200;
+}
+p1 {
+    font-weight: 900;
+    font-size: 50px;
+}
+
+p2 {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+p3 {
+    font-weight:600;
+}
+
+#pop_quiz_button {
+    background-color:#241f29;
+    border:none;
+    color: white;
+}
+
+p4 {
+    font-style: italic;
+}
+
+
+@media screen and (max-width: 35em) {
+    
+    #leftColumn {
+        width: 100%;
+    }
+    
+    #rightColumn {
+        width: 100%;
+        float: left;
+    }
+    
+    .tab-list {
+        width: 50%;
+    }
+    
+    .tab-content {
+        width: 50%;
+        float: right;
+    }
+    
+    
+    
+    
+}
