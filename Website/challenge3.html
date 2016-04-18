@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Layout for CryptoGame</title>
+		<link rel="stylesheet" type="text/css" href="CryptoGame.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script type="text/javascript" src="CryptoGame.js"></script>
+	</head>
+	<body>
+		<div class="cryptoGame">
+			<div id="leftColumn">
+			<div id="rightColumn">
+				<div id="passiveText">
+					<h1>Challenge 3 Encrypted Message</h1>
+					<h2> ctaiarmrcdateifvmarolsnoenersvdhycedeltinihserporpysnloihtpoetnehnehscrtopiaeesgcyt</h2>
+					<h2>aayiiaatfraighbrirpoiebterpoihrntrvawaihdeisdteesgyghagtotanceuyrtsepnssrbktaerdyctpaoehsdnema</h2>
+				</div>
+			</div>
+			<div class="text1">
+			<form id = "user_answer">
+					Your Answer: <input name = "message" type = "text" size = "40">
+				</form>
+				<button type="button" onclick = "check_answer()">Check Answer</button>
+				<script>
+				function check_answer()
+				{
+					var temp,temp1,message,answer;
+					temp = document.getElementById("user_answer");
+					temp1 = temp.elements["message"].value;
+					if(temp1=='Cryptography is an algorithm to protect and enhance the security of private message. Cryptoanalysis is an art of breaking the barriers provided by the crypto cipher, and to reveal what is hidden inside the message.')
+					{
+					document.getElementById("answer").innerHTML="WOW! You are extremely good my brother/sister! Only one more challenge to go! You got it!";}
+					else{
+					document.getElementById("answer").innerHTML="Nope! Your answer is incorrect! Better luck next time!!";
+					}
+				}
+				</script>
+				<p id = "answer"></p>			
+						</div>
+		</div>
+	</body>
+</html>
