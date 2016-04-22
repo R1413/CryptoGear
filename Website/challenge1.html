@@ -13,29 +13,49 @@
 			<div id="rightColumn">
 				<div id="passiveText">
 					<h1>Challenge 1 Encrypted Message</h1>
-					<h2> n fr f inj mfwi rfshmjxyjw zsnyji kfs </h2>
+					<h2> Message 1: n fr f inj mfwi rfshmjxyjw zsnyji kfs </h2>
+					<h2> Message 2: mjqrbjzkjcjssphrsjojcfsjkrdebqssmtl  </h2>
+					<button onclick="location.href = 'frequency_analysis_challenge1.html';" id="myButton">Frequency Analysis Tool</button>
 				</div>
 			</div>
 			<div class="text1">
-			<form id = "user_answer">
-					Your Answer: <input name = "message" type = "text" size = "40">
+			<form id = "user_answer1">
+					Your Answer to Message 1: <input name = "message1" type = "text" size = "150">
 				</form>
-				<button type="button" onclick = "check_answer()">Check Answer</button>
+				<form id = "user_answer2">
+					Your Answer to Message 2: <input name = "message2" type = "text" size = "150">
+				</form>
+				<button type="button" onclick = "check_answer()">Check Answer 1</button>
+				<button type="button" onclick = "check_answer1()">Check Answer 2</button>
 				<script>
 				function check_answer()
 				{
-					var temp,temp1,message,answer;
-					temp = document.getElementById("user_answer");
-					temp1 = temp.elements["message"].value;
+					var temp,temp1,message1, answer1, answer2;
+					temp = document.getElementById("user_answer1");
+					temp1 = temp.elements["message1"].value;
 					if(temp1=='I am a die hard Manchester United fan')
 					{
-					document.getElementById("answer").innerHTML="Very good! But this is only challenge 1!";}
+					document.getElementById("answer").innerHTML="Very good! You got message 1 right! Onto message 2!";}
 					else{
-					document.getElementById("answer").innerHTML="Nope! Your answer is incorrect! Better luck next time!!";
+					document.getElementById("answer").innerHTML="Nope! Your answer to message 1 is incorrect! Better luck next time!!";
+					}
+				}
+				function check_answer1()
+				{
+					var temp, temp1, message2, answer1, answer2;
+					temp = document.getElementById("user_answer2");
+					temp1 = temp.elements["message2"].value;
+					
+					if(temp1=='Hope you do not take to long to decrypt this!')
+					{
+					document.getElementById("answer1").innerHTML="Very good! You completed challenge 1, quite easy huh!";}
+					else{
+					document.getElementById("answer1").innerHTML="Nope! Your answer to message 2 is incorrect! Better luck next time!!";
 					}
 				}
 				</script>
-				<p id = "answer"></p>			
+				<p id = "answer"></p>
+				<p id = "answer1"></p>			
 						</div>
 		</div>
 	</body>

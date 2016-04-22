@@ -113,6 +113,15 @@ nav > ul > li, nav > ul > img {
     padding: 10px 6px;
 }
 
+.hello_item {
+    display: inline-block;
+    font-weight: bold;
+    height: 50px;
+    line-height: 40px;
+    margin: 0px;
+    padding: 10px 6px;
+}
+
 .nav_item_active {
     border-bottom: 5px solid white;
 }
@@ -137,6 +146,31 @@ label {
     user-select: none;
 }
 
+#hello_user {
+    margin-left: 10%
+}
+
+/* Transition */
+
+@media screen and (max-width: 56em) {
+ 
+ #hello_user {
+     margin-left: 0;
+     
+ }
+    
+}
+
+
+@media screen and (max-width: 56em) {
+ 
+ #hello_user {
+     display:none;
+     
+ }
+    
+}
+
 /* Mobile Menu */
 
 @media screen and (max-width: 35em) {
@@ -150,8 +184,10 @@ label {
 
     nav ul {
         display: none;
+        float:left;
         height: 100%;
     }
+    
 
     nav label {
         position: relative;

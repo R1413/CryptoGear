@@ -54,7 +54,7 @@ function add_account_to_db($email, $password, $username) {
                 VALUE(DEFAULT, DEFAULT, {$dbUsername},
                 {$dbPassword}, {$dbEmail}, DEFAULT,
                 DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT,
-                DEFAULT)");
+                DEFAULT, DEFAULT)");
 }
 
 /* Checks if the account info is valid and creates a new account. */

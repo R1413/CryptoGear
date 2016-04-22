@@ -25,44 +25,55 @@ printNavbar();
 					<div class="tab-list">
 						<ol>
 							
-							<button type="button" id="messages_tab">
-							<li id="tab_messages" class="active">
+							<button type="button" id="challenge_one" class="tab_active">
+							<li id="tab_messages">
 							Challenge One
 							</li>
 							</button>
 							
-							<button type="button" id="friends_tab">
+							<button type="button" id="challenge_two" class="tab_inactive">
 							<li id="tab_friends" >
 							Challenge Two
 							</li>
 							</button>
 
 							
-							<button type="button" id="settings_tab">
+							<button type="button" id="challenge_three" class="tab_inactive">
 							<li id="tab_settings">
 							Challenge Three
 							</li>
 							</button>
+							
+							<button type="button" id="challenge_four" class="tab_inactive">
+							<li id="tab_settings">
+							Challenge Four
+							</li>
+							</button>
+							
 						</ol>
 					</div>
 					<div class="tab-content">
-						<div id="messages" class="tab_item">
+						<div id="challenge_one_content" class="challenge_content">
 							<p>Welcome to your first challenge!</p>
 						</div>
 
-						<div id="friends" class="tab_item">
+						<div id="challenge_two_content" class="challenge_content">
 							<p>Here's your second challenge.</p>
 						</div>
 
-						<div id="settings" class="tab_item">
-							<p>Welcome to the third and final challenge.</p>
+						<div id="challenge_three_content" class="challenge_content">
+							<p>Welcome to the third challenge.</p>
+						</div>
+						
+						<div id="challenge_four_content" class="challenge_content">
+							<p>Welcome to the fourth and final challenge.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="rightColumn">
 				<div id="passive_text">
-					<form> <textarea id="passive_form" name="passive_form" cols="40" rows="10"></textarea></form>
+					<form> <textarea id="passive_form" name="passive_form" cols="40" rows="7"></textarea></form>
 				</div>
 				<div id="active_text">
 					<form> <textarea id="active_form" name="active_form" cols="40" rows="12"></textarea></form>

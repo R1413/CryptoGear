@@ -56,7 +56,10 @@ function printHeader($title, $description, $keywords, $cssfiles = null, $jsfiles
             <meta name="author" content="Vivo Applications">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
             <title><?= $title ?></title>
-
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+            $.noConflict();
+            </script>
             <?php
             if ($cssfiles != null) {
                 foreach ($cssfiles as $cssfile) {
@@ -74,6 +77,7 @@ function printHeader($title, $description, $keywords, $cssfiles = null, $jsfiles
                 }
             }
             ?>
+            
             <link rel="icon" type="image/png" href="images/crypto_logo_black.svg">
         </head>
         <body>
@@ -113,6 +117,14 @@ function printNavbar() {
                 <li id="nav_profile" class="nav_item">
                 <img src="images/profile.svg" alt="profile" width="25px" height="25px" /> 
                 Profile 
+                </li>
+            </a>
+            <?php
+              $user = $_SESSION["name"];
+            ?>
+            <a href="profile">
+                <li id="hello_user" class="hello_item">
+                hello, <?php echo $user; ?>!
                 </li>
             </a>
             <a href="logout">

@@ -2,7 +2,7 @@
 
 
 .cryptoGame {
-	background: #1e1c1c;
+/* 	background: #1e1c1c; */
 /* 	width: 75%; */
 	max-width: 1330px;
 	height: 300px;
@@ -33,9 +33,9 @@
 }
 
 .tab-list {
-	background: #1e1c1c;;
+	background: #B17C6F;
 /* 	width: 100px; */
-	height: 50%;
+/* 	height: 50%; */
 	float: left;
 	width: 25%;
 	
@@ -57,7 +57,7 @@
 }
 
 .tab-list a {
-	background: #535252;
+	background: #5A4848;
 	margin: 0;
 	padding: 0;
 	width: 30px;
@@ -102,33 +102,45 @@
 }
 
 #active_text {
-	background: #1e1c1c;;
+	background: #1e1c1c;
 	margin: 15px 0px;
 	width: 100%;
-	height: 300px;
+/* 	height: 300px; */
 	display: block;
 /* 	float: left; */
 }
 
-#messages_tab {
-    background-color: inherit;
+#messages_ajax {
     border: none;
     color: white;
     font-weight: 700;
+    width: 100%;
+    padding: 0;
 }
 
-#friends_tab {
-    background-color: inherit;
+#friends_ajax {
     border: none;
     color: white;
     font-weight: 700;
+    width: 100%;
+    padding: 0;
 }
 
-#settings_tab {
-    background-color: inherit;
+#settings_ajax {
     border: none;
     color: white;
     font-weight: 700;
+    width: 100%;
+    padding: 0;
+}
+
+
+.tab_active {
+    background-color: #465461;
+}
+
+.tab_inactive {
+    background-color: #B17C6F;
 }
 
 #messages {
@@ -162,6 +174,7 @@
     resize: none; 
     color: white;
     padding: 10px;
+    font-size: 1em;
 }
 
 #active_form {
@@ -171,7 +184,90 @@
     resize: none; 
     color: white;
     padding: 10px; 
+    font-size: 1em;
+    height: 7em; 
+/*     10em */
 }
+
+input::-webkit-input-placeholder {
+color: #5C585F !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #5C585F !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #5C585F !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #5C585F !important;  
+}
+
+
+button {
+    outline: none;
+    width:100%;
+}
+
+
+.message_element {
+    color:white;
+    border:none;
+    background:#465461;
+}
+
+.answer_element {
+    display:none;
+}
+
+#message_count {
+    display:none;
+}
+
+.message_active {
+    background-color: #A7A5A7;
+}
+
+.message_inactive {
+    background-color: #465461;
+}
+
+.friend_element {
+    color:white;
+    border:none;
+    background:#465461;
+}
+
+.friend_active {
+    background-color: #A7A5A7;
+}
+
+.friend_inactive {
+    background-color: #465461;
+}
+
+.setting_element {
+    color:white;
+    border:none;
+    background:#465461;
+}
+
+.setting_active {
+    background-color: #A7A5A7;
+}
+
+.setting_inactive {
+    background-color: #465461;
+}
+
+#color_settings {
+    float:right;
+    background-color: #b9a4c0;
+}
+
+
 @media screen and (max-width: 35em) {
     
     #leftColumn {
@@ -183,9 +279,6 @@
         float: left;
     }
     
-    .tab-list {
-        width: 50%;
-    }
     
     .tab-content {
         width: 50%;
