@@ -1,0 +1,154 @@
+/* For animation portion, used open source file animate.css */
+ul.cipher{
+ margin: 100px auto 0px;
+ padding: 0px 10px;
+ width: 110px;
+ background: red;
+ height: 50px;
+ border-radius: 5px;
+ font-size: 20px;
+ 
+ /* Dropdown shadow */
+ -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+ box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+}
+ 
+ul.cipher li{
+ float: left;
+ padding: 0px 0px;
+ margin: 0px 0px;
+ line-height: 50px;
+ display: block;
+ position: relative;
+ text-transform: uppercase;
+ list-style: none;
+}
+ 
+ul.cipher li a{
+ color: yellow;
+ padding: 0px 15px;
+ margin: 0px 0px;
+ display: block;
+text-decoration: none;
+text-align: center;
+}
+ 
+ul.cipher li a:hover{
+ color:blue;
+}
+
+.cipher ul.sub_cipher{
+    width: 180px;
+    padding: 0px 0px;
+    margin: 0px;
+    background: black;
+    position: absolute;
+    top:50px;
+    left:0px;
+    display:none;
+ 
+    /*  Dropdown shadow */
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+}
+
+.cipher ul.sub_cipher ul{
+    left: 180px;
+    top:0px;
+}
+ 
+.cipher ul.sub_cipher li{
+    display: block;
+    float: none;
+    border-bottom: 1px solid white;
+    line-height: 40px;
+    text-transform: none;
+}
+
+.cipher li:hover > ul{
+    display:block;
+}
+ 
+.cipher ul li:hover > ul{
+    display:block;
+}
+
+/* Slide In Down animation */
+.cipher li:hover > ul{
+    display:block;
+    -moz-animation: slideInDown .5s ease-in ;
+    -webkit-animation: slideInDown .5s ease-in ;
+    animation:slideInDown  .5s ease-in ;
+ 
+}
+ 
+.cipher ul li:hover > ul{
+    display:block;
+    -moz-animation: slideInLeft .5s ease-in ;
+    -webkit-animation: slideInLeft .5s ease-in ;
+    animation: slideInLeft .5s ease-in;
+} 
+
+/*Fade In Down animation*/
+/*
+.cipher li:hover > ul{
+    display:block;
+    -moz-animation: fadeInDown .5s ease-in ;
+    -webkit-animation: fadeInDown .5s ease-in ;
+    animation:fadeInDown .5s ease-in ;
+}
+ 
+.cipher ul li:hover > ul{
+    display:block;
+    -moz-animation: fadeInLeft .5s ease-in ;
+    -webkit-animation: fadeInLeft .5s ease-in ;
+    animation:fadeInLeft .5s ease-in ;
+} */
+
+/* Bounce In Down animation */
+/*
+.cipher li:hover > ul{
+    display:block;
+    -moz-animation: bounceInDown .5s ease-in ;
+    -webkit-animation: bounceInDown .5s ease-in ;
+    animation:bounceInDown .5s ease-in ;
+}
+ 
+.cipher ul li:hover > ul{
+    display:block;
+    -moz-animation: bounceInDown .5s ease-in ;
+    -webkit-animation: bounceInDown .5s ease-in ;
+    animation:bounceInDown .5s ease-in ;
+} */
+
+/*Flip animation */
+/*
+.cipher li:hover > ul{
+    display:block;
+    -moz-animation: flip .5s ease-in ;
+    -webkit-animation: flip .5s ease-in ;
+    animation:flip .5s ease-in ;
+}
+ 
+.cipher ul li:hover > ul{
+    display:block;
+    -moz-animation: flip .5s ease-in ;
+    -webkit-animation: flip .5s ease-in ;
+    animation:flip .5s ease-in ;
+} */
+
+/* Hinge animation */
+/*
+.cipher li:hover > ul{
+    display:block;
+    -moz-animation: hinge .5s ease-in ;
+    -webkit-animation: hinge .5s ease-in ;
+    animation:hinge .5s ease-in ;
+}
+ 
+.cipher ul li:hover > ul{
+    display:block;
+    -moz-animation: hinge .5s ease-in ;
+    -webkit-animation: hinge .5s ease-in ;
+    animation:hinge .5s ease-in ;
+} */
