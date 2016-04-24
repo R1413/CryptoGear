@@ -20,9 +20,13 @@ function main() {
             $ciphered_message = $_POST["cipher"];
             $real_message = $_POST["message"];
             $friend = $_POST["friend"];
-//             send_friend($ciphered_message, $real_message, $friend, $sender);
+            send_friend($ciphered_message, $real_message, $friend, $sender);
         } else if ($type == "message_load") {
             load_messages($sender);
+        } else if ($type == "inbox_load") {
+            load_inbox($sender);     
+        } else if ($type == "outbox_load") {
+            load_outbox($sender);
         } else if ($type == "message_read") {
             $ciphered_message = $_POST["cipher"];
             $real_message = $_POST["message"];
@@ -50,6 +54,75 @@ function main() {
     }
 }
 
+function load_outbox($sender) {
+    $outbox_messages = load_outbox_from_db($sender);
+    $outbox_messages->execute();
+//  $result = $list_of_messages->fetch(\PDO::FETCH_ASSOC);
+    $result = $outbox_messages->fetchAll();
+    foreach($result as $row) {
+        print("<button type=" . "button" . " id=" . "message_" . $row['Message_ID'] . " class=" . "message_element" . ">");
+        print("<div id=" . "message_" . $row['Message_ID'] . "_cipher" . ">");
+        print("cipher: " . $row['Ciphertext']);
+        print("</div>");
+        print("<br>");
+        print("sent from: " . $row['Recipient'] . "<br>");
+        print("<div id=" ."answer_" . $row['Message_ID'] . " class=" . "answer_element" . ">");
+        print("You: " . $row['Sender'] . "<br>");
+        print("message: " . $row['Plaintext'] . "<br>");
+        print("</div>");
+        print("</button>");
+        
+    }
+    
+    print("<div id=" . "message_count" . ">");
+    print("rowCount: " . $outbox_messages->rowCount() . "<br>");
+    print("</div>");
+}
+
+
+function load_outbox_from_db($sender) {
+    $db = makePDO();
+// WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
+    $db_sender = $db->quote($sender);
+    $outbox_messages = $db->query("SELECT *
+                        FROM Game_Messages WHERE (Sender = {$db_sender});");
+    return $outbox_messages;
+}
+
+function load_inbox($sender) {
+    $inbox_messages = load_inbox_from_db($sender);
+    $inbox_messages->execute();
+//     $result = $list_of_messages->fetch(\PDO::FETCH_ASSOC);
+    $result = $inbox_messages->fetchAll();
+    foreach($result as $row) {
+        print("<button type=" . "button" . " id=" . "message_" . $row['Message_ID'] . " class=" . "message_element" . ">");
+        print("<div id=" . "message_" . $row['Message_ID'] . "_cipher" . ">");
+        print("cipher: " . $row['Ciphertext']);
+        print("</div>");
+        print("<br>");
+        print("sent from: " . $row['Recipient'] . "<br>");
+        print("<div id=" ."answer_" . $row['Message_ID'] . " class=" . "answer_element" . ">");
+        print("You: " . $row['Sender'] . "<br>");
+        print("message: " . $row['Plaintext'] . "<br>");
+        print("</div>");
+        print("</button>");
+        
+    }
+    
+    print("<div id=" . "message_count" . ">");
+    print("rowCount: " . $inbox_messages->rowCount() . "<br>");
+    print("</div>");
+}
+
+
+function load_inbox_from_db($sender) {
+    $db = makePDO();
+// WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
+    $db_sender = $db->quote($sender);
+    $inbox_messages = $db->query("SELECT *
+                        FROM Game_Messages WHERE (Recipient = {$db_sender});");
+    return $inbox_messages;
+}
 
 function load_messages($sender) {
     $list_of_messages = load_messages_from_db($sender);
@@ -90,9 +163,9 @@ function load_settings($sender) {
     $loaded_settings->execute();
     $result = $loaded_settings->fetchAll();
     foreach($result as $row) {
-        print("<button type=" . "button" . " id=" . "settings_" . $row['User_ID'] . " class=" . "setting_element" . ">");
-        print("<div id=" . "settings_" . $row['User_ID'] . "_color" . ">");
-        print("color: " . $row['BG_Color']);
+        print("<button type=" . "button" . " id=" . "settings_1" . " class=" . "setting_element" . ">");
+        print("<div id=" . "settings_1" . "_color" . ">");
+        print($row['BG_Color']);
         print("</div>");
         print("<br>");
         print("</button>");
@@ -100,7 +173,7 @@ function load_settings($sender) {
     }
     
     print("<div id=" . "message_count" . ">");
-    print("rowCount: " . $list_of_messages->rowCount() . "<br>");
+    print("rowCount: " . $loaded_settings->rowCount() . "<br>");
     print("</div>");
 }
 
@@ -114,6 +187,7 @@ function load_settings_from_db($sender) {
 
 function change_settings($sender, $new_color) {
     change_settings_from_db($sender, $new_color);
+    load_settings($sender);
 }
 
 function change_settings_from_db($sender, $new_color) {

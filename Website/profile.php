@@ -11,7 +11,7 @@ ensure_logged_in();
 
 $description = "Edit your profile and prepare to become the crypography master!";
 $keywords = "crypto, vivo, applications, profile";
-$cssfiles = ["styles/global.css"];
+$cssfiles = ["styles/global.css", "styles/profile.css"];
 $jsfiles = ["scripts/global.js", "scripts/profile.js"];
 printHeader("Profile | Crypto", $description, $keywords, $cssfiles, $jsfiles);
 printNavbar();
@@ -19,6 +19,7 @@ printNavbar();
 
 <div id="main_content">
     <h1>Profile</h1>
+    <div id="loading"></div>
 </div>
 
 <?= printFooter() ?>

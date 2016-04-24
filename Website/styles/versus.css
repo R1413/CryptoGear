@@ -94,6 +94,7 @@
 
 #passive_text {
 	background: #1e1c1c;
+	font-family: Gotham, Helvetica, Arial, sans-serif;
 /* 	margin: 20px 0px; */
 /* 	width: 90%; */
 	height: 150px;
@@ -103,6 +104,7 @@
 
 #active_text {
 	background: #1e1c1c;
+	font-family: Gotham, Helvetica, Arial, sans-serif;
 	margin: 15px 0px;
 	width: 100%;
 /* 	height: 300px; */
@@ -132,6 +134,18 @@
     font-weight: 700;
     width: 100%;
     padding: 0;
+}
+
+#color_ajax {
+    border: none;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    padding: 1em 1em;
+    background: #B17C6F;
+    font-size:1em;
+    margin: 1em 1em;
+    width:11em;
 }
 
 
@@ -206,6 +220,44 @@ color: #5C585F !important;
 }
 
 
+
+
+
+.tab-content input::-webkit-input-placeholder {
+color: #E4E0DF !important;
+}
+ 
+.tab-content input:-moz-placeholder { /* Firefox 18- */
+color: #E4E0DF !important;  
+}
+ 
+.tab-content input::-moz-placeholder {  /* Firefox 19+ */
+color: #E4E0DF !important;  
+}
+ 
+.tab-content input:-ms-input-placeholder {  
+color: #E4E0DF !important;  
+}
+
+
+
+#messaging_options input::-webkit-input-placeholder {
+color: #E4E0DF !important;
+}
+ 
+#messaging_options input:-moz-placeholder { /* Firefox 18- */
+color: #E4E0DF !important;  
+}
+ 
+#messaging_options input::-moz-placeholder {  /* Firefox 19+ */
+color: #E4E0DF !important;  
+}
+ 
+#messaging_options input:-ms-input-placeholder {  
+color: #E4E0DF !important;  
+}
+
+
 button {
     outline: none;
     width:100%;
@@ -216,6 +268,11 @@ button {
     color:white;
     border:none;
     background:#465461;
+    font-size: 1em;
+    margin: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding:0.5em;
 }
 
 .answer_element {
@@ -237,7 +294,12 @@ button {
 .friend_element {
     color:white;
     border:none;
-    background:#465461;
+    background: #465461;
+    font-size: 1em;
+    margin: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding:0.5em;
 }
 
 .friend_active {
@@ -251,7 +313,12 @@ button {
 .setting_element {
     color:white;
     border:none;
-    background:#465461;
+    background:#353238;
+    font-size: 1em;
+    margin:1em 1em;
+    margin-left: 0;
+    margin-right:0;
+    
 }
 
 .setting_active {
@@ -267,7 +334,70 @@ button {
     background-color: #b9a4c0;
 }
 
+#messaging_options {
+    
+}
 
+#settings_options {
+    display: none;
+}
+
+#friends_options {
+    
+}
+
+#change_color {
+    margin: 1em 1em;
+    font-size: 1em;
+    border:none;
+}
+
+#friend {
+    border:none;
+    font-size: 1em;
+    font-weight: 500;
+    width:60%;
+    height: 2em;
+    padding: 1em;
+}
+
+#send_message_ajax {
+    border:none;
+    color:white;
+    background:#1E1C1C;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 1em;
+    width:35%;
+    float:right;
+}
+
+#confirmation {
+    font-weight: 500;
+    color: white;
+    margin-top: 1em;
+    padding: 1em;
+    background: #D6B859;
+    width:60%;
+    display:none;
+}
+
+#messaging_nav {
+    display:block;
+    list-style-type: none;
+}
+
+#inbox {
+    float:left;
+}
+
+#outbox {
+    float:left;
+}
+
+#compose {
+    float:left;
+}
 @media screen and (max-width: 35em) {
     
     #leftColumn {

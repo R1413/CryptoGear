@@ -26,26 +26,26 @@ printNavbar();
 						<ol>
 							
 							<button type="button" id="challenge_one" class="tab_active">
-							<li id="tab_messages">
+							<li id="tab_challenge_one">
 							Challenge One
 							</li>
 							</button>
 							
 							<button type="button" id="challenge_two" class="tab_inactive">
-							<li id="tab_friends" >
+							<li id="tab_challenge_two" >
 							Challenge Two
 							</li>
 							</button>
 
 							
 							<button type="button" id="challenge_three" class="tab_inactive">
-							<li id="tab_settings">
+							<li id="tab_challenge_three">
 							Challenge Three
 							</li>
 							</button>
 							
 							<button type="button" id="challenge_four" class="tab_inactive">
-							<li id="tab_settings">
+							<li id="tab_challenge_four">
 							Challenge Four
 							</li>
 							</button>
@@ -73,7 +73,7 @@ printNavbar();
 			</div>
 			<div id="rightColumn">
 				<div id="passive_text">
-					<form> <textarea id="passive_form" name="passive_form" cols="40" rows="7"></textarea></form>
+					<form> <div id="passive_form" name="passive_form" cols="40" rows="7"></textarea></div>
 				</div>
 				<div id="active_text">
 					<form> <textarea id="active_form" name="active_form" cols="40" rows="12"></textarea></form>

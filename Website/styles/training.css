@@ -1,5 +1,9 @@
 /*Training Formatting*/
 
+#main_content {
+    height:350em;
+    
+}
 p {
     font-weight: 200;
 }

@@ -56,6 +56,25 @@ printNavbar();
 						</ol>
 					</div>
 					<div class="tab-content">
+    					
+    					<div id="messaging_nav">
+        					<div id="inbox">
+            					<li id="tab_inbox">
+							<img src="images/inbox.svg" alt="settings" width="40px" height="40px">
+							</li>
+        					</div>
+        					<div id="outbox">
+            					<li id="tab_outbox">
+							<img src="images/outbox.svg" alt="settings" width="40px" height="40px">
+							</li>
+        					</div>
+        					<div id="compose">
+            					<li id="tab_compose">
+							<img src="images/compose.svg" alt="settings" width="40px" height="40px">
+							</li>
+        					</div>
+    					</div>
+    					
 						<div id="messages" class="tab_item">
 							<p>Here are your messages.</p>
 						</div>
@@ -63,10 +82,18 @@ printNavbar();
 						<div id="friends" class="tab_item">
 							<p>Here are your friends. <?php echo $friends; ?></p>
 						</div>
+						
+						<div id="friends_options">
+				        </div>
 
 						<div id="settings" class="tab_item">
 							<p>Here are your settings.</p>
 						</div>
+						<div id="settings_options">
+                        <input id="change_color" class="color_item" name="new_color" placeholder="your bg color!" type="text" />  
+                        <button type="button" id="color_ajax">change color
+                        </button>
+				        </div>
 						
 					</div>
 				</div>
@@ -74,24 +101,29 @@ printNavbar();
 			<div id="rightColumn">
     			<form id="messaging_form" action="messages" method="post">
 				<div id="passive_text">
-					<textarea id="passive_form" name="cipher" placeholder="Your cipher appears here." maxlength="140" cols="40" rows="7"></textarea>
+					<div id="passive_form" name="cipher"></div>
 				</div>
 				<div id="active_text">
                     <textarea autofocus="autofocus" id="active_form" name="message" placeholder="Think of a message to send your friends!" cols="40" rows="12" maxlength="140" type="text"></textarea>
                     <input type="hidden" name="type" value="message_send" />
-                    <input id="friend" class="friend_item" name="friend" placeholder="friend" type="text" />
-                    <input id="message_submit" class="form_submit" type="submit" value="Send Message" />
-                    
-                    </form>
-                    
-                    <input id="change_color" class="color_item" name="new_color" placeholder="change your background color!" type="text" />    
-                    <input type="hidden" name="type" value="settings_change" />
-                    <button id="color_ajax">
-                    <li id="color_settings">
-                    <img src="images/settings.svg" alt="settings" width="40px" height="40px">
-                    </li>
-                    </button>
 				</div>
+				</form>
+				
+				
+				<div id="messaging_options">
+				<input id="friend" class="friend_item" name="friend" placeholder="friend" type="text" />
+				<button type="button" id="send_message_ajax">
+				send!
+				</button>
+				</div>
+				<div id="confirmation">
+				</div>
+				
+				
+				
+				
+                
+
 			</div>
 		</div>
 </div>
