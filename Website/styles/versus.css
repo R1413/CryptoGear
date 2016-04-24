@@ -80,6 +80,7 @@
 	height: 100%;
 	float: left;
 	width: 75%;
+	overflow-x: scroll;
 /* 	width: 50%; */
 /* 	float: right; */
 }
@@ -161,7 +162,7 @@
     font-size: 15px;
     font-weight: 100;
     text-align: left;
-    margin: 10px 10px;
+    margin: 0.5em 0.5em;
     display: none;
 }
 
@@ -273,6 +274,7 @@ button {
     margin-left: 0;
     margin-right: 0;
     padding:0.5em;
+    word-wrap: break-word;
 }
 
 .answer_element {
@@ -300,6 +302,7 @@ button {
     margin-left: 0;
     margin-right: 0;
     padding:0.5em;
+    word-wrap: break-word;
 }
 
 .friend_active {
@@ -385,18 +388,32 @@ button {
 #messaging_nav {
     display:block;
     list-style-type: none;
+    padding: 0.5em;
 }
 
-#inbox {
+#inbox_ajax {
     float:left;
+    width:20%;
+    border:none;
+    margin-bottom: 0.3em;
+    margin-left: 0.35em;
 }
 
-#outbox {
+#outbox_ajax {
     float:left;
+    width:20%;
+    border:none;
+    margin-bottom:0.3em;
+    
 }
 
-#compose {
+#compose_ajax {
     float:left;
+    width:20%;
+    border:none;
+    float:right;
+    margin-bottom:0.3em;
+    margin-right:0.35em;
 }
 @media screen and (max-width: 35em) {
     
@@ -409,10 +426,16 @@ button {
         float: left;
     }
     
-    
     .tab-content {
-        width: 50%;
-        float: right;
+        float: left;
+    }
+    
+    #passive_text {
+        margin-top: 10em;
+    }
+    
+    #main_content {
+        height: 65em;
     }
     
     

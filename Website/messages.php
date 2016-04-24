@@ -65,10 +65,10 @@ function load_outbox($sender) {
         print("cipher: " . $row['Ciphertext']);
         print("</div>");
         print("<br>");
-        print("sent from: " . $row['Recipient'] . "<br>");
+        print("sent to: " . $row['Recipient'] . "<br>");
+        print("message: " . $row['Plaintext'] . "<br>");
         print("<div id=" ."answer_" . $row['Message_ID'] . " class=" . "answer_element" . ">");
         print("You: " . $row['Sender'] . "<br>");
-        print("message: " . $row['Plaintext'] . "<br>");
         print("</div>");
         print("</button>");
         
@@ -84,8 +84,7 @@ function load_outbox_from_db($sender) {
     $db = makePDO();
 // WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
     $db_sender = $db->quote($sender);
-    $outbox_messages = $db->query("SELECT *
-                        FROM Game_Messages WHERE (Sender = {$db_sender});");
+    $outbox_messages = $db->query("SELECT * FROM Game_Messages WHERE Sender = {$db_sender};");
     return $outbox_messages;
 }
 
@@ -100,9 +99,9 @@ function load_inbox($sender) {
         print("cipher: " . $row['Ciphertext']);
         print("</div>");
         print("<br>");
-        print("sent from: " . $row['Recipient'] . "<br>");
+        print("sent from: " . $row['Sender'] . "<br>");
         print("<div id=" ."answer_" . $row['Message_ID'] . " class=" . "answer_element" . ">");
-        print("You: " . $row['Sender'] . "<br>");
+        print("You: " . $row['Recipient'] . "<br>");
         print("message: " . $row['Plaintext'] . "<br>");
         print("</div>");
         print("</button>");
@@ -119,8 +118,7 @@ function load_inbox_from_db($sender) {
     $db = makePDO();
 // WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
     $db_sender = $db->quote($sender);
-    $inbox_messages = $db->query("SELECT *
-                        FROM Game_Messages WHERE (Recipient = {$db_sender});");
+    $inbox_messages = $db->query("SELECT * FROM Game_Messages WHERE Recipient = {$db_sender};");
     return $inbox_messages;
 }
 

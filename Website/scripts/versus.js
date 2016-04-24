@@ -16,6 +16,10 @@
         $("tab_friends").addEventListener("click", setActiveTab);
         $("tab_settings").addEventListener("click", setActiveTab);
         
+        $("tab_inbox").addEventListener("click", setActiveMessageTab);
+        $("tab_outbox").addEventListener("click", setActiveMessageTab);
+        $("tab_compose").addEventListener("click", setActiveMessageTab);
+        
         load_my_messages();
         load_my_settings_onload();
         
@@ -41,6 +45,17 @@
         
         jQuery("#send_message_ajax").click( function(){
             send_message();
+        });
+        
+         jQuery("#inbox_ajax").click( function(){
+            load_my_inbox();
+        });
+        
+         jQuery("#outbox_ajax").click( function(){
+            load_my_outbox();
+        });
+        
+         jQuery("#compose_ajax").click( function(){
         });
         
         
@@ -98,8 +113,100 @@ function load_my_messages() {
                     setActiveMessage(ids, active_message);
                 });
             }
+            load_my_inbox();
         }
         });
+}
+
+function load_my_messages() {
+/*
+    jQuery.ajax({ url: 'messages',
+        data: {type: 'message_load'},
+        type: 'post',
+        success: function(output) {
+        $("messages").innerHTML = output;
+        $("settings_options").style.display = "none";
+        $("messaging_nav").style.display = "block";
+        var i = 0;
+            var ids = [];  
+            jQuery(".message_element").each(function(){
+                ids.push(this.id);
+            });
+            for (var i = 0; i < ids.length; i++) {
+                $(ids[i].toString()).addEventListener('click', function() {
+                    var active_message = this.id;
+                    setActiveMessage(ids, active_message);
+                });
+            }
+*/
+            load_my_inbox();
+            
+/*
+        }
+        });
+*/
+}
+
+function load_my_inbox() {
+    jQuery.ajax({ url: 'messages',
+        data: {type: 'inbox_load'},
+        type: 'post',
+        success: function(output) {
+        $("messages").innerHTML = output;
+        $("settings_options").style.display = "none";
+        $("messaging_nav").style.display = "block";
+        var i = 0;
+            var ids = [];  
+            jQuery(".message_element").each(function(){
+                ids.push(this.id);
+            });
+            for (var i = 0; i < ids.length; i++) {
+                $(ids[i].toString()).addEventListener('click', function() {
+                    var active_message = this.id;
+                    setActiveMessage(ids, active_message);
+                });
+            }
+        }
+        });
+}
+
+
+function load_my_outbox() {
+    jQuery.ajax({ url: 'messages',
+        data: {type: 'outbox_load'},
+        type: 'post',
+        success: function(output) {
+        $("messages").innerHTML = output;
+        $("settings_options").style.display = "none";
+        $("messaging_nav").style.display = "block";
+        var i = 0;
+            var ids = [];  
+            jQuery(".message_element").each(function(){
+                ids.push(this.id);
+            });
+            for (var i = 0; i < ids.length; i++) {
+                $(ids[i].toString()).addEventListener('click', function() {
+                    var active_message = this.id;
+                    setActiveMessage(ids, active_message);
+                });
+            }
+        }
+        });
+}
+
+function setActiveMessageTab() {
+    var tab = this.id;
+    var navs = ["inbox", "outbox", "compose"];
+
+    for (var i = 0; i < navs.length; i++) {
+        $(navs[i] + "_ajax").classList.remove("tab_active");
+        $(navs[i]  + "_ajax").classList.add("tab_inactive");
+        //alert(tab);
+        if (tab == "tab_" + navs[i]) {
+            $(navs[i]  + "_ajax").classList.remove("tab_inactive");
+            $(navs[i]  + "_ajax").classList.add("tab_active");
+        }
+    }
 }
 
 function load_my_friends() {
@@ -230,6 +337,10 @@ function clearSelection() {
         }
 }
 
+
+
+
+
 function setActiveMessage(id_array, active_message) {
         var ids = id_array;
 
@@ -237,16 +348,12 @@ function setActiveMessage(id_array, active_message) {
             var msg = document.getElementById(ids[i]);
             msg.classList.remove("message_active");
             msg.classList.add("message_inactive");
-//             msg.style.backgroundColor = "#465461";
-//             alert(msg.id);
-//             alert(active_message);
             if (msg.id == active_message) {
                 msg.classList.remove("message_inactive");
                 msg.classList.add("message_active");
                 $("passive_form").innerHTML = $(active_message + "_cipher").innerHTML;
                 $("versus_header").removeEventListener("click", clearSelection);
                 $("versus_header").addEventListener("click", clearSelection);
-//                 msg.style.backgroundColor = "#A7A5A7";
             }
         }
     }
@@ -290,38 +397,38 @@ function setActiveSetting(id_array, active_setting) {
 
 function setActiveTab() {
         
-        var tab = this.id;
-        var navs = ["messages", "friends", "settings"];
+    var tab = this.id;
+    var navs = ["messages", "friends", "settings"];
 
-        for (var i = 0; i < navs.length; i++) {
-            var element = $(navs[i]);
-            $(navs[i] + "_ajax").classList.remove("tab_active");
-            $(navs[i] + "_ajax").classList.add("tab_inactive");
-            element.style.display = "none";
-            //alert(tab);
-            if (tab == "tab_" + navs[i]) {
-                //temp = tab;
-                $(navs[i] + "_ajax").classList.remove("tab_inactive");
-                $(navs[i] + "_ajax").classList.add("tab_active");
-                element.style.display = "block";
-            }
+    for (var i = 0; i < navs.length; i++) {
+        var element = $(navs[i]);
+        $(navs[i] + "_ajax").classList.remove("tab_active");
+        $(navs[i] + "_ajax").classList.add("tab_inactive");
+        element.style.display = "none";
+        //alert(tab);
+        if (tab == "tab_" + navs[i]) {
+            //temp = tab;
+            $(navs[i] + "_ajax").classList.remove("tab_inactive");
+            $(navs[i] + "_ajax").classList.add("tab_active");
+            element.style.display = "block";
         }
     }
+}
     
 function startActiveTab(tab) {
         
-        var navs = ["messages", "friends", "settings"];
+    var navs = ["messages", "friends", "settings"];
 
-        for (var i = 0; i < navs.length; i++) {
-            var element = document.getElementById(navs[i]);
-            element.style.display = "none";
-            //alert(tab);
-            if (tab == "tab_" + navs[i]) {
-                element.style.display = "block";
-                //alert(this.id);
-            }
-        } 
-    }
+    for (var i = 0; i < navs.length; i++) {
+        var element = document.getElementById(navs[i]);
+        element.style.display = "none";
+        //alert(tab);
+        if (tab == "tab_" + navs[i]) {
+            element.style.display = "block";
+            //alert(this.id);
+        }
+    } 
+}
 
 
 

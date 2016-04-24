@@ -55,25 +55,28 @@ printNavbar();
 							</button>
 						</ol>
 					</div>
-					<div class="tab-content">
-    					
-    					<div id="messaging_nav">
-        					<div id="inbox">
+					
+					<div id="messaging_nav">
+        					<button type="button" id="inbox_ajax" class="tab_inactive">
             					<li id="tab_inbox">
 							<img src="images/inbox.svg" alt="settings" width="40px" height="40px">
 							</li>
-        					</div>
-        					<div id="outbox">
+        					</button>
+        					<button type="button" id="outbox_ajax" class="tab_inactive">
             					<li id="tab_outbox">
 							<img src="images/outbox.svg" alt="settings" width="40px" height="40px">
 							</li>
-        					</div>
-        					<div id="compose">
+        					</button>
+        					<button type="button" id="compose_ajax" class="tab_inactive">
             					<li id="tab_compose">
 							<img src="images/compose.svg" alt="settings" width="40px" height="40px">
 							</li>
-        					</div>
+        					</button>
     					</div>
+    					
+					<div class="tab-content">
+    					
+    					
     					
 						<div id="messages" class="tab_item">
 							<p>Here are your messages.</p>
