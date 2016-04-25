@@ -47,7 +47,8 @@ INSERT INTO Game_Messages VALUE ("aolyl pz h mpul spul iladllu aol ubtlyhavy huk
 INSERT INTO Game_Messages VALUE ("aolyl pz h mpul spul iladllu aol ubtlyhavy huk aol kluvtpuhavy", "there is a fine line between the numerator and the denominator", NULL, 'anth1748@colorado.edu', 'radu5022@colorado.edu', DEFAULT, DEFAULT);
 INSERT INTO Game_Messages VALUE ("aolyl pz h mpul spul iladllu aol ubtlyhavy huk aol kluvtpuhavy", "there is a fine line between the numerator and the denominator", NULL, 'sayed.sarders@colorado.edu', 'radu5022@colorado.edu', DEFAULT, DEFAULT);
 INSERT INTO Game_Messages VALUE ("aolyl pz h mpul spul iladllu aol ubtlyhavy huk aol kluvtpuhavy", "there is a fine line between the numerator and the denominator", NULL, 'jose.canizares@colorado.edu', 'radu5022@colorado.edu', DEFAULT, DEFAULT);
-
+SELECT * FROM Game_Messages WHERE Recipient = "jose.canizares@colorado.edu";
+SELECT * FROM Game_Messages WHERE Sender = "jose.canizares@colorado.edu";
 
 CREATE TABLE Friend_Table(
 Friend_ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

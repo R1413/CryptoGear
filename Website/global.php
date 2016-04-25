@@ -87,6 +87,8 @@ function printHeader($title, $description, $keywords, $cssfiles = null, $jsfiles
 /* Prints the navbar html. */
 function printNavbar() {
     ?>
+    <div id="stored_settings">
+    </div>
     <nav>
         <input type="checkbox" id="button">
         <label for="button" onclick></label>

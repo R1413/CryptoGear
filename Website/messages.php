@@ -47,11 +47,46 @@ function main() {
         } else if ($type == "settings_change") {
             $new_color = $_POST["new_color"]; 
             change_settings($sender, $new_color);
+        } else if ($type == "add_friend") {
+            $new_friend = $_POST["new_friend"]; 
+            add_friend($sender, $new_friend);
         }
         else {
             //redirect("index", "Oops! Post information wasn't passed.");
         }
     }
+}
+
+function add_friend($sender, $new_friend) {
+    if(account_exists($new_friend)) {
+        if(not_already_friend($sender, $new_friend)) {
+            add_friend_to_db($sender, $new_friend);
+            print("");
+        }
+        else {
+            print("<div id=". "output". "> Oh, haha. You're friends with this guy already. </div>");
+        }
+        
+    }
+    else {
+        print("<div id=". "output". "> That friend doesn't exist. Try a different friend? </div>");
+    }
+}
+
+function not_already_friend($sender, $new_friend) {
+    $db = makePDO();
+    $db_new_friend = $db->quote($new_friend);
+    $db_sender = $db->quote($sender);
+    $valid = $db->query("SELECT * FROM Friend_Table WHERE ((Requester={$db_sender} AND Receiver={$db_new_friend}) OR (Requester={$db_new_friend} AND Receiver={$db_sender})) LIMIT 1;");
+    $valid->rowCount();
+    
+}
+
+function add_friend_to_db($sender, $new_friend) {
+    $db = makePDO();
+    $db_new_friend = $db->quote($new_friend);
+    $db_sender = $db->quote($sender);
+    $db->query("INSERT INTO Friend_Table VALUE (DEFAULT, {$db_sender}, {$db_new_friend}, DEFAULT);");
 }
 
 function load_outbox($sender) {
@@ -84,7 +119,7 @@ function load_outbox_from_db($sender) {
     $db = makePDO();
 // WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
     $db_sender = $db->quote($sender);
-    $outbox_messages = $db->query("SELECT * FROM Game_Messages WHERE Sender = {$db_sender};");
+    $outbox_messages = $db->query("SELECT * FROM Game_Messages WHERE Sender = {$db_sender} ORDER BY Message_ID DESC;");
     return $outbox_messages;
 }
 
@@ -118,7 +153,7 @@ function load_inbox_from_db($sender) {
     $db = makePDO();
 // WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
     $db_sender = $db->quote($sender);
-    $inbox_messages = $db->query("SELECT * FROM Game_Messages WHERE Recipient = {$db_sender};");
+    $inbox_messages = $db->query("SELECT * FROM Game_Messages WHERE Recipient = {$db_sender} ORDER BY Message_ID DESC;");
     return $inbox_messages;
 }
 
@@ -152,7 +187,7 @@ function load_messages_from_db($sender) {
 // WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});
     $db_sender = $db->quote($sender);
     $list_of_messages = $db->query("SELECT *
-                        FROM Game_Messages WHERE (Sender = {$db_sender} OR Recipient = {$db_sender});");
+                        FROM Game_Messages WHERE (Sender = {$db_sender} OR Recipient = {$db_sender}) ORDER BY Message_ID DESC;");
     return $list_of_messages;
 }
 
@@ -223,7 +258,7 @@ function add_message_to_db($ciphered_message, $real_message, $friend, $sender) {
 
 /* Sends a friend a message. */
 function send_friend($ciphered_message, $real_message, $friend, $sender) {
-        if(!account_exists($friend)) {
+        if(account_exists($friend)) {
                 add_message_to_db($ciphered_message, $real_message, $friend, $sender);
         } else {
             print("That friend's account does not exist.");
@@ -250,6 +285,19 @@ function username_exists($username) {
     return $rows->rowCount();
 }
 
+/* Returns the username of an account given the email. */
+function get_email($sender) {
+    $db = makePDO();
+
+    $db_login = $db->quote($sender);
+    $result = $db->query("SELECT *
+                        FROM User_Accounts
+                        WHERE (Email = {$db_login} OR Username = {$db_login})
+                        LIMIT 1");
+    
+    return $result;
+}
+
 function show_friends($sender) {
     $list_of_friends = show_friends_from_db($sender);
     $list_of_friends->execute();
@@ -272,9 +320,15 @@ function show_friends($sender) {
 
 function show_friends_from_db($sender) {
     $db = makePDO();
-
-    $db_sender = $db->quote($sender);
-    $list_of_friends = $db->query("SELECT * FROM Friend_Table WHERE (Requester={$db_sender} OR Receiver={$db_sender});");
+    $email = get_email($sender);
+    $email->execute();
+    $result = $email->fetchAll();
+    $string = ($result['Username'] . $result['Email'] . $result['Password'] . $result['Country']);
+    //print("<p> HI THERE");
+    //print($string);
+    //print("</p>");
+    $db_email = $db->quote($sender);
+    $list_of_friends = $db->query("SELECT * FROM Friend_Table WHERE (Requester={$db_email} OR Receiver={$db_email}) ORDER BY Friend_ID DESC;");
     return $list_of_friends;
 }
 

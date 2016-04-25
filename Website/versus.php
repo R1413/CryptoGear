@@ -47,10 +47,6 @@ printNavbar();
 							<li id="tab_settings">
 							<img src="images/settings.svg" alt="settings" width="40px" height="40px">
 							</li>
-							
-							<div id="stored_settings">
-							<p>Here are your stored settings.</p>
-						    </div>
 						    
 							</button>
 						</ol>
@@ -87,13 +83,16 @@ printNavbar();
 						</div>
 						
 						<div id="friends_options">
+    						<input id="add_friend" class="option_item" name="add_friend" placeholder="add a friend!" type="text" />  
+                        <button type="button" id="add_friend_ajax">add</button>
+                        <div id="could_not_add_friend"></div>
 				        </div>
 
 						<div id="settings" class="tab_item">
 							<p>Here are your settings.</p>
 						</div>
 						<div id="settings_options">
-                        <input id="change_color" class="color_item" name="new_color" placeholder="your bg color!" type="text" />  
+                        <input id="change_color" class="option_item" name="new_color" placeholder="your bg color!" type="text" />  
                         <button type="button" id="color_ajax">change color
                         </button>
 				        </div>
@@ -114,7 +113,7 @@ printNavbar();
 				
 				
 				<div id="messaging_options">
-				<input id="friend" class="friend_item" name="friend" placeholder="friend" type="text" />
+				<input id="friend_input" class="friend_item" name="friend" placeholder="friend" type="text" />
 				<button type="button" id="send_message_ajax">
 				send!
 				</button>
