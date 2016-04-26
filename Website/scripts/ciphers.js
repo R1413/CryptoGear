@@ -1,7 +1,8 @@
-function AffineCipher(string) {
+function AffineCipher() {
         
         
     //$("output").innerHTML = $("encrypt").value;
+    var string = $("encrypt").value;
     //string = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
     //string = string.replace(/\s{2,}/g," ");
         
@@ -37,7 +38,7 @@ function AffineCipher(string) {
    
    
 
-function CaesarCipherEncrypt(string, key) 
+var CaesarCipherEncrypt = function(string, key) 
 {
     var ciphertext = "";
     for(var i = 0; i < string.length; i++) 
@@ -58,7 +59,7 @@ function CaesarCipherEncrypt(string, key)
     return ciphertext;
 }
 
-function CaesarCipherDecrypt(string, key) 
+var CaesarCipherDecrypt = function(string, key) 
 {
     var plaintext = "";
     for(var i = 0; i < string.length; i++) 
@@ -138,25 +139,48 @@ function railsFenceDecrypt(string, key)
     
     
     
+// function Letters_Frequency(string) 
+// {
+//     var frequency = {};
+//     for (var i=0; i<string.length;i++) 
+//     {
+//         var character = string.charAt(i);
+//         if (frequency[character]) 
+//         {
+//            frequency[character]++;
+//         } 
+//         else
+//         {
+//            frequency[character] = 1;
+//         }
+//     }
+
+//     for(i = 0; i < frequency.length; i++){
+//         console.log(i);
+//         document.write(frequency[i] + ": " + frequency[i][0])
+//     }
+
+//     return frequency;
+
+// };
+
 function Letters_Frequency(string) 
 {
-    var frequency = {};
-    for (var i=0; i<string.length;i++) 
+    var letters = "abcdefghijklmnopqrstuvwxyz"
+    var frequency = [];
+    for(i = 0; i < 26; i++){
+        frequency[i] = 0;
+    }
+    for (i=0; i<string.length;i++) 
     {
-        var character = string.charAt(i);
-        if (frequency[character]) 
-        {
-           frequency[character]++;
-        } 
-        else
-        {
-           frequency[character] = 1;
-        }
+        var character = string.charAt(i).toLowerCase();
+           frequency[letters.indexOf(character)]++;
     }
 
-    return frequency;
+    return frequency.join();
 
 };
 
-    
+// var string = "Defend the east wall of the castle";
+// console.log("\n" + Letters_Frequency2(string));
 
