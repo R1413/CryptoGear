@@ -1,5 +1,5 @@
-# Crypto
-
+# CryptoGear
+Repo Organization: ignore the Android folder, since it was our inital goal to make an Android app. The Website folder has everything about the website. There are also sub-folders outside of the Website folder that includes code for the website, namely PlayGround, Drop Down Menu, Loading Spinner, etc. 
 ####Who:
 
 Raymond Duncan-THE BOSS <br>
