@@ -1,0 +1,256 @@
+/*Playground Formatting*/
+
+
+
+.cryptoGame {
+	background: #1e1c1c;
+/* 	width: 75%; */
+	max-width: 1330px;
+	height: 300px;
+}
+
+#leftColumn {
+	background: #dedddd;
+/* 	width: 250px; */
+
+/*     width: 100%; */
+    width: 50%;
+	height: 100%;;
+	float: left;
+}
+
+#rightColumn {
+	background: #faf5f5;
+	width: 50%;
+	height: 100%;
+	float: right;
+/* 	width: 100%; */
+}
+
+.tabs {
+/* 	margin: 20px 20px; */
+	height: 100%;
+	background-color: #ffffff;
+}
+
+.tab-list {
+	background: #B17C6F;
+/* 	width: 100px; */
+	height: 50%;
+	float: left;
+	width: 25%;
+	
+/* 	width: 50%; */
+}
+
+.tab-list ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tab-list li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+/* 	float: left; */
+}
+
+.tab-list a {
+	background: #535252;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	transition: all linear 0.05s;
+	float: left;
+}
+
+.tab-list a:hover {
+	background: #683737;
+} 
+
+.tab-list li.active a, .tab-list li.active a:hover {
+	background: #683737;
+}
+
+.tab-content {
+	background-color: #ffffff;
+/* 	width: 200px; */
+	height: 100%;
+	float: left;
+	width: 75%;
+/* 	width: 50%; */
+/* 	float: right; */
+}
+
+.tab {
+	display: none;
+}
+
+.tab.active {
+	display: block;
+}
+
+#passive_text {
+	background: #1e1c1c;
+/* 	margin: 20px 0px; */
+/* 	width: 90%; */
+	height: 150px;
+	display: block;
+/* 	float: left; */
+}
+
+#active_text {
+	background: #1e1c1c;
+	margin: 15px 0px;
+	width: 100%;
+	height: 300px;
+	display: block;
+/* 	float: left; */
+}
+
+#challenge_one {
+    border: none;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+}
+
+#challenge_two {
+    border: none;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+}
+
+#challenge_three {
+    border: none;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+}
+
+#challenge_four {
+    border: none;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+}
+
+
+
+.tab_active {
+    background-color: #465461;
+}
+
+.tab_inactive {
+    background-color: #B17C6F;
+}
+
+#challenge_one_content {
+    font-size: 15px;
+    font-weight: 100;
+    text-align: left;
+    margin: 10px 10px;
+    border:none;
+    display: none;
+}
+
+#challenge_two_content {
+    font-size: 15px;
+    font-weight: 100;
+    text-align: left;
+    margin: 10px 10px;
+    border:none;
+    display: none;
+}
+
+#challenge_three_content {
+    font-size: 15px;
+    font-weight: 100;
+    text-align: left;
+    margin: 10px 10px;
+    border:none;
+    display: none;
+}
+
+#challenge_four_content {
+    font-size: 15px;
+    font-weight: 100;
+    text-align: left;
+    margin: 10px 10px;
+    border:none;
+    display: none;
+}
+
+#passive_form {
+    background-color: inherit;
+    width: 100%;
+    border: none;   
+    resize: none; 
+    color: white;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#active_form {
+    background-color: inherit;
+    width: 100%;
+    border: none;  
+    resize: none; 
+    color: white;
+    padding: 10px; 
+    font-size: 1em;
+}
+
+input::-webkit-input-placeholder {
+color: #5C585F !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #5C585F !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #5C585F !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #5C585F !important;  
+}
+
+button {
+    width:100%;
+    outline: none;
+}
+
+#stored_settings {
+    display:none;
+}
+
+@media screen and (max-width: 35em) {
+    
+    #leftColumn {
+        width: 100%;
+    }
+    
+    #rightColumn {
+        width: 100%;
+        float: left;
+    }
+    
+    .tab-list {
+        width: 50%;
+    }
+    
+    .tab-content {
+        width: 50%;
+        float: right;
+    }
+    
+    
+    
+    
+}

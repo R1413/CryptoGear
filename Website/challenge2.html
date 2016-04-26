@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Layout for CryptoGame</title>
+		<link rel="stylesheet" type="text/css" href="CryptoGame.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script type="text/javascript" src="CryptoGame.js"></script>
+	</head>
+	<body>
+		<div class="cryptoGame">
+			<div id="leftColumn">
+			<div id="rightColumn">
+				<div id="passiveText">
+					<h1>Challenge 2 Encrypted Message</h1>
+					<h3> Message 1: wfirmt nb uivv grnv r orpv gl kozb hlxxvi, kozb erwvl tznv, zmw szmtrmt lfg drgs uirvmwh. </h3>
+					<h3> Message 2: uvaopun pz ptwvzzpisl, aol dvyk pazlsm zhfz pt wvzzpisl! - hbkylf olwibyu </h3>
+					<button onclick="location.href = 'frequency_analysis_challenge2.html';" id="myButton">Frequency Analysis Tool</button>
+				</div>
+			</div>
+			<div class="text1">
+			<form id = "user_answer1">
+					Your Answer to Message 1: <input name = "message1" type = "text" size = "150">
+				</form>
+				<form id = "user_answer2">
+					Your Answer to Message 2: <input name = "message2" type = "text" size = "150">
+				</form>
+				<button type="button" onclick = "check_answer()">Check Answer 1</button>
+				<button type="button" onclick = "check_answer1()">Check Answer 2</button>
+				<script>
+				function check_answer()
+				{
+					var temp,temp1,message,answer;
+					temp = document.getElementById("user_answer1");
+					temp1 = temp.elements["message1"].value;
+					if(temp1=='During my free time I like to play soccer, play video game, and hanging out with friends.')
+					{
+					document.getElementById("answer").innerHTML="Nice! Now crack that second message!!";}
+					else{
+					document.getElementById("answer").innerHTML="Nope! Your answer to message 1 is incorrect! Better luck next time!!";
+					}
+				}
+				function check_answer1()
+				{
+					var temp, temp1, message2, answer1, answer2;
+					temp = document.getElementById("user_answer2");
+					temp1 = temp.elements["message2"].value;
+					
+					if(temp1=='Nothing is impossible, the word itself says Im possible! - Audrey Hepburn')
+					{
+					document.getElementById("answer1").innerHTML="Great! You completed challenge 2, I see you getting there son!";}
+					else{
+					document.getElementById("answer1").innerHTML="Nope! Your answer to message 2 is incorrect! Better luck next time!!";
+					}
+				}
+				</script>
+				<p id = "answer"></p>
+				<p id = "answer1"></p>
+						</div>
+		</div>
+	</body>
+</html>
