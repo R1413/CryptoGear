@@ -51,7 +51,7 @@ printNavbar();
         </li>
     </button>
     
-    <div id="profile_options" class="tab_active">
+    <div id="profile_options" class="tab_inactive">
         <input id="change_firstname" class="update_item" name="new_firstname" placeholder="update your first name!" type="text" />  
         <button type="button" id="firstname_ajax">update
         </button>

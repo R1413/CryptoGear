@@ -113,6 +113,10 @@
 /* 	float: left; */
 }
 
+#active_form {
+    outline:none;
+}
+
 #messages_ajax {
     border: none;
     color: white;

@@ -15,8 +15,8 @@ ensure_logged_in();
 
 $description = "Battle your friends to be crowned the cryptography champion!";
 $keywords = "crypto, vivo, applications, versus";
-$cssfiles = ["styles/global.css", "styles/versus.css"];
-$jsfiles = ["scripts/global.js", "scripts/versus.js"];
+$cssfiles = ["styles/global.css", "styles/versus.css", "styles/dropdown.css"];
+$jsfiles = ["scripts/global.js", "scripts/versus.js", "scripts/ciphers.js"];
 printHeader("Versus | Crypto", $description, $keywords, $cssfiles, $jsfiles);
 printNavbar();
 ?>
@@ -106,7 +106,41 @@ printNavbar();
 					<div id="passive_form" name="cipher"></div>
 				</div>
 				<div id="active_text">
-                    <textarea autofocus="autofocus" id="active_form" name="message" placeholder="Think of a message to send your friends!" cols="40" rows="12" maxlength="140" type="text"></textarea>
+    				<div id='cipher_dropdown'>
+                    <ul>
+                       <li class='inside sub_cipher'><a href='#'>encrypt</a>
+                          <ul>
+                             <li class='sub_cipher'>
+                             <button type="button" id="caesar_perform" class="dropdown">
+                             <a href='#'>caesar</a>
+                             </button>
+                             </li>
+                             <li class='sub_cipher'>
+                             <button type="button" id="atbash_perform" class="dropdown">
+                             <a href='#'>atbash</a>
+                             </button>
+                             </li>
+                             <li class='sub_cipher'>
+                             <button type="button" id="affine_perform" class="dropdown">
+                             <a href='#'>affine</a>
+                             </button>
+                             </li>
+                             <li class='sub_cipher'>
+                             <button type="button" id="railfence_perform" class="dropdown">
+                             <a href='#'>rail-fence</a>
+                             </button>
+                             </li>
+                             <li class='sub_cipher'>
+                             <button type="button" id="frequency_perform" class="dropdown">
+                             <a href='#'>analyze</a>
+                             </button>
+                             </li>
+                             
+                          </ul>
+                       </li>
+                    </ul>
+                    </div>
+                    <textarea autofocus="autofocus" id="active_form" name="message" placeholder="Think of a message to send your friends!" cols="40" rows="12" maxlength="2000" type="text"></textarea>
                     <input type="hidden" name="type" value="message_send" />
 				</div>
 				</form>

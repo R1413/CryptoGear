@@ -1,8 +1,7 @@
-function AffineCipher() {
+function AffineCipher(string) {
         
         
     //$("output").innerHTML = $("encrypt").value;
-    var string = $("encrypt").value;
     //string = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
     //string = string.replace(/\s{2,}/g," ");
         
@@ -38,7 +37,7 @@ function AffineCipher() {
    
    
 
-var CaesarCipherEncrypt = function(string, key) 
+function CaesarCipherEncrypt(string, key) 
 {
     var ciphertext = "";
     for(var i = 0; i < string.length; i++) 
@@ -59,7 +58,7 @@ var CaesarCipherEncrypt = function(string, key)
     return ciphertext;
 }
 
-var CaesarCipherDecrypt = function(string, key) 
+function CaesarCipherDecrypt(string, key) 
 {
     var plaintext = "";
     for(var i = 0; i < string.length; i++) 

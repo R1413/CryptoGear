@@ -59,7 +59,7 @@ function main() {
 
 function add_friend($sender, $new_friend) {
     if(account_exists($new_friend)) {
-        if(not_already_friend($sender, $new_friend)) {
+        if(!already_friend($sender, $new_friend)) {
             add_friend_to_db($sender, $new_friend);
             print("");
         }
@@ -73,7 +73,7 @@ function add_friend($sender, $new_friend) {
     }
 }
 
-function not_already_friend($sender, $new_friend) {
+function already_friend($sender, $new_friend) {
     $db = makePDO();
     $db_new_friend = $db->quote($new_friend);
     $db_sender = $db->quote($sender);
@@ -97,7 +97,7 @@ function load_outbox($sender) {
     foreach($result as $row) {
         print("<button type=" . "button" . " id=" . "message_" . $row['Message_ID'] . " class=" . "message_element" . ">");
         print("<div id=" . "message_" . $row['Message_ID'] . "_cipher" . ">");
-        print("cipher: " . $row['Ciphertext']);
+        print($row['Ciphertext']);
         print("</div>");
         print("<br>");
         print("sent to: " . $row['Recipient'] . "<br>");
@@ -131,7 +131,7 @@ function load_inbox($sender) {
     foreach($result as $row) {
         print("<button type=" . "button" . " id=" . "message_" . $row['Message_ID'] . " class=" . "message_element" . ">");
         print("<div id=" . "message_" . $row['Message_ID'] . "_cipher" . ">");
-        print("cipher: " . $row['Ciphertext']);
+        print($row['Ciphertext']);
         print("</div>");
         print("<br>");
         print("sent from: " . $row['Sender'] . "<br>");
@@ -165,7 +165,7 @@ function load_messages($sender) {
     foreach($result as $row) {
         print("<button type=" . "button" . " id=" . "message_" . $row['Message_ID'] . " class=" . "message_element" . ">");
         print("<div id=" . "message_" . $row['Message_ID'] . "_cipher" . ">");
-        print("cipher: " . $row['Ciphertext']);
+        print($row['Ciphertext']);
         print("</div>");
         print("<br>");
         print("sent from: " . $row['Recipient'] . "<br>");

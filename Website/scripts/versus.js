@@ -20,6 +20,13 @@
         $("tab_outbox").addEventListener("click", setActiveMessageTab);
         $("tab_compose").addEventListener("click", setActiveMessageTab);
         
+        $("compose_ajax").addEventListener("click", setCompose);
+        $("caesar_perform").addEventListener("click", make_caesar);
+        $("atbash_perform").addEventListener("click", make_atbash);
+        $("affine_perform").addEventListener("click", make_affine);
+        $("railfence_perform").addEventListener("click", make_railfence);
+        $("frequency_perform").addEventListener("click", find_frequency);
+        
         load_my_messages();
         load_my_settings_onload();
         
@@ -58,9 +65,6 @@
         
          jQuery("#outbox_ajax").click( function(){
             load_my_outbox();
-        });
-        
-         jQuery("#compose_ajax").click( function(){
         });
         
         
@@ -185,6 +189,14 @@ function setActiveMessageTab() {
         if (tab == "tab_" + navs[i]) {
             $(navs[i]  + "_ajax").classList.remove("tab_inactive");
             $(navs[i]  + "_ajax").classList.add("tab_active");
+            if (tab == "tab_inbox" || tab == "tab_outbox") {
+                jQuery("#cipher_dropdown > ul > li.inside > a").text("decrypt");
+                $("caesar_perform").style.display = "none";
+                $("atbash_perform").style.display = "none";
+                $("affine_perform").style.display = "none";
+                $("railfence_perform").style.display = "none";
+                $("frequency_perform").style.display = "block";
+            }
         }
     }
 }
@@ -374,7 +386,7 @@ function setActiveFriend(id_array, active_friend) {
             if (msg.id == active_friend) {
                 msg.classList.remove("friend_inactive");
                 msg.classList.add("friend_active");
-                $("passive_form").innerHTML = $(active_friend).innerHTML;
+                //$("passive_form").innerHTML = $(active_friend).innerHTML;
                 $("friend_input").value = $(active_friend).innerHTML;
 //                 $("passive_form").innerHTML = jQuery("#active_friend #cipher").innerHTML;
                 $("versus_header").removeEventListener("click", clearSelection);
@@ -445,11 +457,55 @@ function startActiveTab(tab) {
         element.style.display = "none";
         if (tab == "tab_" + navs[i]) {
             element.style.display = "block";
+            jQuery("#cipher_dropdown > ul > li.inside > a").text("decrypt");
+            $("caesar_perform").style.display = "none";
+            $("atbash_perform").style.display = "none";
+            $("affine_perform").style.display = "none";
+            $("railfence_perform").style.display = "none";
+            $("frequency_perform").style.display = "block";
         }
     } 
 }
 
+function make_caesar() {
+    var message = $("active_form").value.toString();
+    $("passive_form").innerHTML = CaesarCipherEncrypt(message, 9); 
+}
+function make_atbash() {
+    var message = $("active_form").value.toString();
+    $("passive_form").innerHTML = AtbashCipher(message);
+}
+function make_affine() {
+    var message = $("active_form").value.toString();
+    $("passive_form").innerHTML = AffineCipher(message);
+}
+function make_railfence() {
+    var message = $("active_form").value.toString();
+    $("passive_form").innerHTML = railsFenceEncrypt(message, 11);
+}
 
+function find_frequency() {
+    var message = $("passive_form").innerText;
+    var frequency = Letters_Frequency(message);
+    var output = "";
+    for (var property in frequency) {
+        output = output + "\n" + property + ": " + frequency[property] + "\n";
+    }
+    var english = "Most common English letters in order of their frequency. \n e, t, a, i, n , o, s, h, r, d, l, u, c, m, f, w, y, g, p, b, v, k, q, j, x, z \n \n Frequencies of your friend's message: \n";
+    $("active_form").innerHTML = english + output ;
+    return frequency;
+    
+}
+
+function setCompose() {
+    jQuery("#cipher_dropdown > ul > li.inside > a").text("encrypt");
+    $("caesar_perform").style.display = "block";
+    $("atbash_perform").style.display = "block";
+    $("affine_perform").style.display = "block";
+    $("railfence_perform").style.display = "block";
+    $("frequency_perform").style.display = "none";
+//         $("cipher_dropdown").style.display = "none";
+}
 
 
    
